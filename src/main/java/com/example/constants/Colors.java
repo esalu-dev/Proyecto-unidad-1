@@ -3,9 +3,9 @@ package com.example.constants;
 import java.awt.Color;
 
 public class Colors {
-   public final static Color mainWhite = java.awt.Color.decode("#F2F1DC");
-   public final static Color mainYellow = java.awt.Color.decode("#F2C438");
-   public final static Color mostaza = java.awt.Color.decode("#D99B29");
-   public final static Color darkYellow = java.awt.Color.decode("#D98841");
-   public final static Color mainRed = java.awt.Color.decode("#BF3939");
+   public final static Color mainWhite = java.awt.Color.decode("#F2F2F2");
+   public final static Color mainBlue = java.awt.Color.decode("#0439D9");
+   public final static Color lightBlue = java.awt.Color.decode("#056CF2");
+   public final static Color darkBlue = java.awt.Color.decode("#010626");
+   public final static Color lightPurple = java.awt.Color.decode("#0455BF");
 }

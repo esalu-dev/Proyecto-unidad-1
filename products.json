@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "nombre": "Silla",
+    "precio": "500",
+    "cantidad": "10",
+    "img": "image1"
+  },
+  {
+    "id": "2",
+    "nombre": "Mesa",
+    "precio": "1000",
+    "cantidad": "5",
+    "img": "image2"
+  },
+  {
+    "id": "3",
+    "nombre": "Sofá",
+    "precio": "2000",
+    "cantidad": "3",
+    "img": "image3"
+  },
+  {
+    "id": "4",
+    "nombre": "Armario",
+    "precio": "15000",
+    "cantidad": "8",
+    "img": "image4"
+  },
+  {
+    "id": "5",
+    "nombre": "Escritorio",
+    "precio": "1200",
+    "cantidad": "6",
+    "img": "image5"
+  },
+  {
+    "id": "6",
+    "nombre": "Mecedora",
+    "precio": "800",
+    "cantidad": "12",
+    "img": "image6"
+  },
+  {
+    "id": "7",
+    "nombre": "Cama",
+    "precio": "2500",
+    "cantidad": "4",
+    "img": "image7"
+  },
+  {
+    "id": "8",
+    "nombre": "Banco",
+    "precio": "700",
+    "cantidad": "15",
+    "img": "image8"
+  },
+  {
+    "id": "9",
+    "nombre": "Estantería",
+    "precio": "900",
+    "cantidad": "7",
+    "img": "image9"
+  },
+  {
+    "id": "10",
+    "nombre": "Mesita de noche",
+    "precio": "700",
+    "cantidad": "9",
+    "img": "image10"
+  },
+  {
+    "id": "11",
+    "nombre": "Sillón",
+    "precio": "1800",
+    "cantidad": "5",
+    "img": "image11"
+  },
+  {
+    "id": "12",
+    "nombre": "Taburete",
+    "precio": "300",
+    "cantidad": "20",
+    "img": "image12"
+  },
+  {
+    "id": "13",
+    "nombre": "Perchero",
+    "precio": "400",
+    "cantidad": "15",
+    "img": "image13"
+  },
+  {
+    "id": "14",
+    "nombre": "Cómoda",
+    "precio": "2000",
+    "cantidad": "6",
+    "img": "image14"
+  },
+  {
+    "id": "15",
+    "nombre": "Biblioteca",
+    "precio": "1500",
+    "cantidad": "3",
+    "img": "image15"
+  },
+  {
+    "id": "16",
+    "nombre": "Mesa de centro",
+    "precio": "800",
+    "cantidad": "10",
+    "img": "image16"
+  },
+  {
+    "id": "17",
+    "nombre": "Escritorio esquinero",
+    "precio": "1200",
+    "cantidad": "7",
+    "img": "image17"
+  },
+  {
+    "id": "18",
+    "nombre": "Estantería modular",
+    "precio": "1000",
+    "cantidad": "5",
+    "img": "image18"
+  },
+  {
+    "id": "19",
+    "nombre": "Armario ropero",
+    "precio": "3000",
+    "cantidad": "2",
+    "img": "image19"
+  },
+  {
+    "id": "20",
+    "nombre": "Taburete bajo",
+    "precio": "250",
+    "cantidad": "10",
+    "img": "image20"
+  }
+]

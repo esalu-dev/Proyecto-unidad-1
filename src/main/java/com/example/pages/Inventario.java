@@ -1,6 +1,8 @@
 package com.example.pages;
 
 import javax.swing.JPanel;
+
+import com.example.components.MainTable;
 import com.example.components.MainTitle;
 import com.example.constants.Colors;
 
@@ -15,5 +17,8 @@ public class Inventario extends JPanel {
     titulo.setForeground(Colors.lightPurple);
     titulo.setBounds(50, 50, 200, 50);
     add(titulo);
+    MainTable tabla = new MainTable();
+    tabla.setBounds(50, 100, 840, 450);
+    add(tabla);
   }
 }

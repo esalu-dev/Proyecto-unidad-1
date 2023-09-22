@@ -17,7 +17,10 @@ import mdlaf.MaterialLookAndFeel;
 
 public class Main {
 
-    final static JFrame ventana = new JFrame("Inventario");
+    final static JFrame ventana = new JFrame("Sistema Mueblería Salas Luján");
+    final static Inventario inventario = new Inventario();
+    final static Ventas ventas = new Ventas();
+    final static Configuration configuracion = new Configuration();
 
     public static void setDesign(){
         try {
@@ -34,29 +37,33 @@ public class Main {
     public static void changePaneltoInventario(){
         ventana.getContentPane().removeAll();
         ventana.getContentPane().add(new PanelDerecho());
-        ventana.getContentPane().add(new Inventario());
+        inventario.setBounds(300, 0, 967, 683);
+        ventana.getContentPane().add(inventario);
         ventana.revalidate();
         ventana.repaint();
     }
     public static void changePaneltoVentas(){
         ventana.getContentPane().removeAll();
         ventana.getContentPane().add(new PanelDerecho());
-        ventana.getContentPane().add(new Ventas());
+        ventas.setBounds(300, 0, 967, 683);
+        ventana.getContentPane().add(ventas);
         ventana.revalidate();
         ventana.repaint();
     }
     public static void changePaneltoConfiguracion(){
         ventana.getContentPane().removeAll();
         ventana.getContentPane().add(new PanelDerecho());
-        ventana.getContentPane().add(new Configuration());
+        configuracion.setBounds(300, 0, 967, 683);
+        ventana.getContentPane().add(configuracion);
         ventana.revalidate();
         ventana.repaint();
     }
     public static void main(String[] args) {
         setDesign();
-        
+        ventana.setResizable(false);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setSize(1280, 720);
+        ventana.setLayout(null);
         ventana.getContentPane().add(new PanelDerecho());
         ventana.getContentPane().add(new Inventario());
         

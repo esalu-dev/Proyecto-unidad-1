@@ -25,9 +25,9 @@ public class PanelDerecho extends JPanel {
    final static JLabel titulo = new JLabel("Mueblería");
    final static JLabel titulo2 = new JLabel("Salas Luján");
    final static Font titleFont = new Font("Poppins", Font.BOLD, 20);
-   final static SectionButton ventas = new SectionButton("Ventas", ventasAction, new CustomBorder(Colors.darkBlue, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
-   final static SectionButton inventario = new SectionButton("Inventario", inventarioAction, new CustomBorder(Colors.darkBlue, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
-   final static SectionButton configuracion = new SectionButton("Configuración", configuracionAction, new CustomBorder(Colors.darkBlue, Colors.darkBlue,Colors.lightPurple,Colors.lightPurple, 3));
+   final static SectionButton ventas = new SectionButton("Ventas", ventasAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
+   final static SectionButton inventario = new SectionButton("Inventario", inventarioAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
+   final static SectionButton configuracion = new SectionButton("Configuración", configuracionAction, new CustomBorder(Colors.darkPurple, Colors.darkPurple,Colors.lightPurple,Colors.lightPurple, 3));
 
    public PanelDerecho(){
       setLayout(null);

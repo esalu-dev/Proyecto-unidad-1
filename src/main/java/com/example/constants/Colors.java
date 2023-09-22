@@ -8,4 +8,5 @@ public class Colors {
    public final static Color lightBlue = java.awt.Color.decode("#056CF2");
    public final static Color darkBlue = java.awt.Color.decode("#010626");
    public final static Color lightPurple = java.awt.Color.decode("#0455BF");
+   public final static Color darkPurple = java.awt.Color.decode("#023e8c");
 }

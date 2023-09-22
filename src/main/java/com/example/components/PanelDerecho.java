@@ -33,10 +33,10 @@ public class PanelDerecho extends JPanel {
       setLayout(null);
       setSize(300,720);
       setBackground(Colors.lightPurple);
-      titulo.setBounds(90, 50, 200, 50);
+      titulo.setBounds(97, 50, 200, 50);
       titulo.setForeground(Colors.mainWhite);
       titulo.setFont(titleFont);
-      titulo2.setBounds(85, 80, 200, 50);
+      titulo2.setBounds(92, 80, 200, 50);
       titulo2.setForeground(Colors.mainWhite);
       titulo2.setFont(titleFont);
       add(titulo);

@@ -7,13 +7,13 @@ import com.example.constants.Colors;
 
 
 
-public class Inventario extends JPanel {
+public class Configuration extends JPanel {
 
-   final JLabel etiqueta = new JLabel("Panel inventario");
+   final JLabel etiqueta = new JLabel("Panel configuración");
    
    
 
-   public Inventario(){
+   public Configuration(){
      setSize(500, 500);
      setBackground(Colors.mainWhite);
      add(etiqueta);

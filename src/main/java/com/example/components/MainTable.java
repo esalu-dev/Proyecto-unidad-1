@@ -2,6 +2,7 @@ package com.example.components;
 
 
 
+import java.awt.Font;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -16,6 +17,8 @@ import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
 public class MainTable extends JScrollPane{
+   final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
+
    public MainTable(){
       setSize(500, 500);
       JTable table = createCustomTable();
@@ -25,6 +28,7 @@ public class MainTable extends JScrollPane{
    private static JTable createCustomTable() {
       String[] columnNames = {"ID", "Nombre", "Precio", "Cantidad"};
       DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+      
       List<Mueble> muebles =JSONManager.getDataFromLocalJSON();
       for (Mueble mueble : muebles) {
          Object[] row = {mueble.getId(), mueble.getNombre(), mueble.getPrecio(), mueble.getCantidad()};
@@ -34,7 +38,7 @@ public class MainTable extends JScrollPane{
       
       JTable table = new JTable();
       table.setModel(model);
-      
+      table.setFont(titleFont);
 
       // Personalizar el aspecto de la tabla
       table.setFillsViewportHeight(true);

@@ -20,7 +20,7 @@ public class JSONManager {
    static List<Mueble> muebles = new ArrayList<>();
 
 
-   private static void saveDataInJSON(List<Mueble> listaMuebles) {
+   public static void saveDataInJSON(List<Mueble> listaMuebles) {
     try (Writer writer = new FileWriter("products.json")) {
         gson.toJson(listaMuebles, writer);
         System.out.println("Datos guardados en el archivo JSON");

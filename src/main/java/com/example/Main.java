@@ -29,8 +29,8 @@ public class Main {
             UIManager.put("Label.font", defaultFont);
             UIManager.put("TextField.font", defaultFont);
             UIManager.put("TextArea.font", defaultFont);
-            UIManager.setLookAndFeel(new MaterialLookAndFeel());
-        } catch (UnsupportedLookAndFeelException e) {
+            //UIManager.setLookAndFeel(new MaterialLookAndFeel());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -6,6 +6,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -32,9 +34,11 @@ public class Card extends JPanel {
       setMaximumSize(new Dimension(150,200));
       setLayout(new BorderLayout());
       setBackground(Colors.mainWhite);
+      NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("es", "MX", "MX"));
+      String formattedPrice = currencyFormatter.format(Double.parseDouble(price));
 
       titulo.setText(title);
-      precio.setText(price);
+      precio.setText(formattedPrice);
       cantidad.setText("Disponible: "+String.valueOf(Cantidad));
       image = new ImageIcon(imgLink);
       img = image.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);

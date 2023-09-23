@@ -3,7 +3,9 @@ package com.example.components;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -24,15 +26,35 @@ public class EditDataFrame extends JFrame {
    final static MainLabel cantidadLabel = new MainLabel("Cantidad");
    final static MainSpinner cantidad = new MainSpinner();
    final static MainLabel urlImagenLabel = new MainLabel("URL de la imagen");
-   final static MainTextField urlImagen = new MainTextField();
+   final static FormButton urlImagen = new FormButton("Seleccionar imagen", true);
    final static FormButton submitButton = new FormButton("Editar", true);
    final static FormButton cancelButton = new FormButton("Cancelar", false);
+   String rutaArchivo;
    static int row;
 
    final ActionListener eventoCancel = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
          if(ev.getSource().equals(cancelButton)){
             dispose();
+         }
+      }
+   };
+   final ActionListener eventoImagen = new ActionListener(){
+      public void actionPerformed(ActionEvent ev){
+         JFileChooser fileChooser = new JFileChooser();
+         // Abre el cuadro de diálogo para seleccionar un archivo
+         int seleccion = fileChooser.showOpenDialog(EditDataFrame.this);
+
+         if (seleccion == JFileChooser.APPROVE_OPTION) {
+            // El usuario ha seleccionado un archivo
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            rutaArchivo = archivoSeleccionado.getAbsolutePath();
+            JOptionPane.showMessageDialog(EditDataFrame.this, "Has seleccionado: " + rutaArchivo);
+            urlImagen.setText(rutaArchivo);
+
+         } else {
+            // El usuario canceló la selección
+            JOptionPane.showMessageDialog(EditDataFrame.this, "Selección cancelada");
          }
       }
    };
@@ -59,7 +81,7 @@ public class EditDataFrame extends JFrame {
             }
             
             
-            Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), urlImagen.getText());
+            Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), rutaArchivo);
             JSONManager.editDataFromLocalJSON(row, mueble);
             JOptionPane.showMessageDialog(rootPane, "Registro editado con éxito", "Registro editado", JOptionPane.INFORMATION_MESSAGE);
             Main.inventario.refreshTable();
@@ -72,7 +94,6 @@ public class EditDataFrame extends JFrame {
       nombre.setText("");
       precio.setText("");
       cantidad.setValue(0);
-      urlImagen.setText("");
    }
    public void setFields(Mueble mueble){
 
@@ -120,6 +141,7 @@ public class EditDataFrame extends JFrame {
       cancelButton.setBounds(230, 520, 150, 50);
       add(cancelButton);
       cancelButton.addActionListener(eventoCancel);
+      urlImagen.addActionListener(eventoImagen);
       ActionListener[] listeners = submitButton.getActionListeners();
       for (ActionListener listener : listeners) {
          submitButton.removeActionListener(listener);

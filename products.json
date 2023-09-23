@@ -2,8 +2,8 @@
   {
     "nombre": "Silla",
     "precio": 500.0,
-    "cantidad": 10,
-    "imgLink": "ejemplo"
+    "cantidad": 2,
+    "imgLink": "facebook.png"
   },
   {
     "nombre": "Mesa",

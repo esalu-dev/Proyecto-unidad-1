@@ -45,6 +45,10 @@ public class Mueble {
       this.imgLink = imgLink;
    }
 
+   public boolean isAvailable(){
+      return cantidad > 0;
+   }
+
    public String[] toArray(){
       String[] mueble = {nombre, String.valueOf(precio), String.valueOf(cantidad), imgLink};
       return mueble;

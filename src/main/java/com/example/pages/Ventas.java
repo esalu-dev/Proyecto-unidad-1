@@ -10,7 +10,7 @@ import com.example.constants.Colors;
 
 public class Ventas extends JPanel {
   final static MainTitle etiqueta = new MainTitle("Ventas");
-  final static ProductsPanel productsPanel = new ProductsPanel();
+  public final static ProductsPanel productsPanel = new ProductsPanel();
   final static ScrollPane scroll = new ScrollPane();
   public Ventas(){
     setSize(500, 500);

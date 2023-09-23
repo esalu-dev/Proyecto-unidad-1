@@ -13,8 +13,11 @@ public class ProductsPanel extends JPanel {
    final static GridLayout grid = new GridLayout(0, 2);
 
    public void getData(){
+      this.removeAll();
       for(Mueble mueble : JSONManager.getDataFromLocalJSON()){
-         add(new Card(mueble.getNombre(), String.valueOf(mueble.getPrecio()), mueble.getImgLink(), mueble.isAvailable()));
+         add(new Card(mueble.getNombre(), String.valueOf(mueble.getPrecio()), mueble.getImgLink(),mueble.getCantidad() , mueble.isAvailable()));
+         this.revalidate();
+         this.repaint();
       }
 
    }

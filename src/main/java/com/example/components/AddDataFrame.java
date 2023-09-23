@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import com.example.Main;
 import com.example.constants.Colors;
+import com.example.pages.Ventas;
 import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
@@ -60,6 +61,7 @@ public class AddDataFrame extends JFrame {
             Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), urlImagen.getText());
             JSONManager.addDataToLocalJSON(mueble);
             JOptionPane.showMessageDialog(rootPane, "Registro agregado con éxito", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+            Ventas.productsPanel.getData();
             Main.inventario.refreshTable();
             dispose();
          }

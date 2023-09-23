@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import com.example.Main;
 import com.example.constants.Colors;
+import com.example.pages.Ventas;
 import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
@@ -52,8 +53,8 @@ public class EditDataFrame extends JFrame {
                JOptionPane.showMessageDialog(rootPane, "El precio debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
                return;
             }
-            if(Integer.parseInt(cantidad.getValue().toString()) <= 0){
-               JOptionPane.showMessageDialog(rootPane, "La cantidad debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
+            if(Integer.parseInt(cantidad.getValue().toString()) < 0){
+               JOptionPane.showMessageDialog(rootPane, "La cantidad no puede ser menor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
                return;
             }
             
@@ -62,6 +63,7 @@ public class EditDataFrame extends JFrame {
             JSONManager.editDataFromLocalJSON(row, mueble);
             JOptionPane.showMessageDialog(rootPane, "Registro editado con éxito", "Registro editado", JOptionPane.INFORMATION_MESSAGE);
             Main.inventario.refreshTable();
+            Ventas.productsPanel.getData();
             dispose();
          }
       }

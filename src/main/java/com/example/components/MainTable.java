@@ -17,11 +17,20 @@ import com.example.types.Mueble;
 
 public class MainTable extends JScrollPane{
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
+   final static JTable table = new JTable();
+
 
    public MainTable(){
       setSize(500, 500);
       JTable table = createCustomTable();
       setViewportView(table);
+   }
+
+   public void refreshTable(){
+      revalidate();
+      repaint();
+      table.setModel(createCustomTable().getModel());
+      table.repaint();
    }
 
    private static JTable createCustomTable() {
@@ -40,7 +49,6 @@ public class MainTable extends JScrollPane{
       }
 
       
-      JTable table = new JTable();
       table.setModel(model);
       table.setFont(titleFont);
 

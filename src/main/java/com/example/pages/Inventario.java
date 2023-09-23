@@ -14,7 +14,7 @@ import com.example.constants.Colors;
 public class Inventario extends JPanel {
 
   final static MainTitle titulo = new MainTitle("Inventario");
-  final static MainTable tabla = new MainTable();
+  public final static MainTable tabla = new MainTable();
   final static TableButton btnAgregar = new TableButton("Agregar");
   final static TableButton btnEditar = new TableButton("Editar");
   final static TableButton btnEliminar = new TableButton("Eliminar");
@@ -27,6 +27,12 @@ public class Inventario extends JPanel {
       }
     }
   };
+
+  public void refreshTable(){
+    tabla.refreshTable();
+    revalidate();
+    repaint();
+  }
 
 
   public Inventario(){

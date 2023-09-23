@@ -13,8 +13,6 @@ public class Mueble {
       this.imgLink = imgLink;
    }
 
-     
-
    public String getNombre() {
       return nombre;
    }

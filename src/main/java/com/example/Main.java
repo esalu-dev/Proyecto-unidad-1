@@ -18,7 +18,7 @@ import mdlaf.MaterialLookAndFeel;
 public class Main {
 
     public final static JFrame ventana = new JFrame("Sistema Mueblería Salas Luján");
-    final static Inventario inventario = new Inventario();
+    public final static Inventario inventario = new Inventario();
     final static Ventas ventas = new Ventas();
     final static Configuration configuracion = new Configuration();
 

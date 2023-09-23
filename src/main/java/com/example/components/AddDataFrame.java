@@ -65,9 +65,16 @@ public class AddDataFrame extends JFrame {
          }
       }
    };
+   public void restartFields(){
+      nombre.setText("");
+      precio.setText("");
+      cantidad.setValue(0);
+      urlImagen.setText("");
+   }
 
    public AddDataFrame(){
       super("Añadir un producto al inventario");
+      restartFields();
       setAlwaysOnTop(true);
       subtitulo.setFont(new Font("Poppins", Font.PLAIN, 12));
       setResizable(false);

@@ -36,6 +36,30 @@ public class AddDataFrame extends JFrame {
    final ActionListener eventoSubmit = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
          if(ev.getSource().equals(submitButton)){
+            try{
+               Integer.parseInt(precio.getText());
+            }catch(NumberFormatException e){
+               JOptionPane.showMessageDialog(rootPane, "El precio debe ser un número", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
+            if(nombre.getText().equals("") || precio.getText().equals("") || urlImagen.getText().equals("")){
+               JOptionPane.showMessageDialog(rootPane, "Por favor, llena todos los campos", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
+            if(Integer.parseInt(precio.getText()) <= 0){
+               JOptionPane.showMessageDialog(rootPane, "El precio debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
+            if(Integer.parseInt(cantidad.getValue().toString()) <= 0){
+               JOptionPane.showMessageDialog(rootPane, "La cantidad debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
+            if(Integer.parseInt(id.getValue().toString()) <= 0){
+               JOptionPane.showMessageDialog(rootPane, "El ID debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
+            
+
             JOptionPane.showMessageDialog(rootPane, "Registro agregado con éxito", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
             dispose();
          }

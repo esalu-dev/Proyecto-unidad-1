@@ -1,5 +1,6 @@
 package com.example.pages;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -85,7 +86,7 @@ public class Inventario extends JPanel {
 
     btnAgregar.setBackground(Colors.darkPurple);
     btnEditar.setBackground(Colors.darkPurple);
-    btnEliminar.setBackground(Colors.darkPurple);
+    btnEliminar.setBackground(Color.RED);
     btnAgregar.setForeground(Colors.mainWhite);
     btnEditar.setForeground(Colors.mainWhite);
     btnEliminar.setForeground(Colors.mainWhite);

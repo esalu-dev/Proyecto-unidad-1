@@ -14,8 +14,8 @@ import com.example.types.Mueble;
 
 
 public class EditDataFrame extends JFrame {
-   final static MainTitle titulo = new MainTitle("Añadir producto");
-   final static MainTitle subtitulo = new MainTitle("Llena los campos para añadir un producto");
+   final static MainTitle titulo = new MainTitle("Editar producto");
+   final static MainTitle subtitulo = new MainTitle("Edita los campos para actualizar el producto");
    final static MainLabel nombreLabel = new MainLabel("Nombre");
    final static MainTextField nombre = new MainTextField();
    final static MainLabel precioLabel = new MainLabel("Precio");

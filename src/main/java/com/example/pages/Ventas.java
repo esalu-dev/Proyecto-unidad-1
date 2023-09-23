@@ -14,6 +14,7 @@ public class Ventas extends JPanel {
   final static ScrollPane scroll = new ScrollPane();
   public Ventas(){
     setSize(500, 500);
+    scroll.setSize(500, 500);
     scroll.add(productsPanel);
     setBackground(Colors.mainWhite);
     setLayout(null);

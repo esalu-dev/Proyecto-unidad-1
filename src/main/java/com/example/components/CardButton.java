@@ -19,8 +19,10 @@ public class CardButton extends JButton {
    public void setButtonEnabled(boolean enabled){
       setEnabled(enabled);
       if(enabled){
+         this.setText("Añadir");
          setBackground(Colors.mainGreen);
       }else{
+         this.setText("No disponible");
          setBackground(Colors.lightPurple);
       }
    }

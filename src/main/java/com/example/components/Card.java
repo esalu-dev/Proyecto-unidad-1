@@ -2,19 +2,17 @@ package com.example.components;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.example.constants.Colors;
-import com.example.constants.CustomBorder;
 
 public class Card extends JPanel {
    final static Font titleFont = new Font("Poppins", Font.BOLD, 14);
@@ -26,8 +24,9 @@ public class Card extends JPanel {
    private JLabel imagen;
    final private JPanel northPanel = new JPanel();
    final private CardButton button = new CardButton();
-   public Card(String title, String price, String imgLink){
-      setSize(150, 150);
+   public Card(String title, String price, String imgLink, boolean isAvailable){
+      setPreferredSize(new Dimension(150,200));
+      setMaximumSize(new Dimension(150,200));
       setLayout(new BorderLayout());
       setBackground(Colors.mainWhite);
 
@@ -50,6 +49,7 @@ public class Card extends JPanel {
       precio.setAlignmentX(Component.CENTER_ALIGNMENT);
       imagen.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+      button.setButtonEnabled(isAvailable);
 
       northPanel.add(Box.createVerticalGlue());
       northPanel.add(titulo);

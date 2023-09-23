@@ -19,13 +19,13 @@ import com.example.constants.CustomBorder;
 public class Card extends JPanel {
    final static Font titleFont = new Font("Poppins", Font.BOLD, 14);
    final static Font priceFont = new Font("Poppins", Font.PLAIN, 14);
-   final static JLabel titulo = new JLabel();
-   final static JLabel precio = new JLabel();
-   static ImageIcon image;
-   static Image img;
-   static JLabel imagen;
-   final static JPanel northPanel = new JPanel();
-   final static CardButton button = new CardButton();
+   final private JLabel titulo = new JLabel();
+   final private JLabel precio = new JLabel();
+   private ImageIcon image;
+   private Image img;
+   private JLabel imagen;
+   final private JPanel northPanel = new JPanel();
+   final private CardButton button = new CardButton();
    public Card(String title, String price, String imgLink){
       setSize(150, 150);
       setLayout(new BorderLayout());
@@ -58,9 +58,6 @@ public class Card extends JPanel {
       add(northPanel, BorderLayout.NORTH);
       add(imagen, BorderLayout.CENTER);
       add(button, BorderLayout.SOUTH);
-
-      
-
    }
    
 }

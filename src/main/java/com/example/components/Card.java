@@ -1,6 +1,7 @@
 package com.example.components;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -48,7 +49,7 @@ public class Card extends JPanel {
       precio.setForeground(Colors.lightPurple);
       precio.setHorizontalAlignment(JLabel.CENTER);
       cantidad.setFont(quantityFont);
-      cantidad.setForeground(Colors.mainBlue);
+      cantidad.setForeground(Colors.darkBlue);
       cantidad.setHorizontalAlignment(JLabel.CENTER);
       imagen.setHorizontalAlignment(JLabel.CENTER);
       titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -56,7 +57,7 @@ public class Card extends JPanel {
       imagen.setAlignmentX(Component.CENTER_ALIGNMENT);
       cantidad.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-      button.setButtonEnabled(isAvailable);
+      setAvailable(isAvailable);
 
       northPanel.add(Box.createVerticalGlue());
       northPanel.add(titulo);
@@ -67,6 +68,14 @@ public class Card extends JPanel {
       add(northPanel, BorderLayout.NORTH);
       add(imagen, BorderLayout.CENTER);
       add(button, BorderLayout.SOUTH);
+   }
+   public void setAvailable(boolean isAvailable){
+      if (isAvailable) {
+         cantidad.setForeground(Colors.darkBlue);
+     } else {
+         cantidad.setForeground(Color.RED);
+     }
+      button.setButtonEnabled(isAvailable);
    }
    
 }

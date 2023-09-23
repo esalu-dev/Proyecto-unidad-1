@@ -3,7 +3,10 @@ package com.example.components;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -24,9 +27,11 @@ public class AddDataFrame extends JFrame {
    final static MainLabel cantidadLabel = new MainLabel("Cantidad");
    final static MainSpinner cantidad = new MainSpinner();
    final static MainLabel urlImagenLabel = new MainLabel("URL de la imagen");
-   final static MainTextField urlImagen = new MainTextField();
+   final static FormButton urlImagen = new FormButton("Seleccionar imagen", true);
    final static FormButton submitButton = new FormButton("Añadir", true);
    final static FormButton cancelButton = new FormButton("Cancelar", false);
+   static String rutaArchivo;
+   
 
    final ActionListener eventoCancel = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
@@ -35,6 +40,27 @@ public class AddDataFrame extends JFrame {
          }
       }
    };
+
+   final ActionListener eventoImagen = new ActionListener(){
+      public void actionPerformed(ActionEvent ev){
+         JFileChooser fileChooser = new JFileChooser();
+         // Abre el cuadro de diálogo para seleccionar un archivo
+         int seleccion = fileChooser.showOpenDialog(AddDataFrame.this);
+
+         if (seleccion == JFileChooser.APPROVE_OPTION) {
+            // El usuario ha seleccionado un archivo
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            rutaArchivo = archivoSeleccionado.getAbsolutePath();
+            JOptionPane.showMessageDialog(AddDataFrame.this, "Has seleccionado: " + rutaArchivo);
+            urlImagen.setText(rutaArchivo);
+
+         } else {
+            // El usuario canceló la selección
+            JOptionPane.showMessageDialog(AddDataFrame.this, "Selección cancelada");
+         }
+      }
+   };
+   
    final ActionListener eventoSubmit = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
          if(ev.getSource().equals(submitButton)){
@@ -58,7 +84,7 @@ public class AddDataFrame extends JFrame {
             }
             
             
-            Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), urlImagen.getText());
+            Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), rutaArchivo);
             JSONManager.addDataToLocalJSON(mueble);
             JOptionPane.showMessageDialog(rootPane, "Registro agregado con éxito", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
             Ventas.productsPanel.getData();
@@ -71,7 +97,6 @@ public class AddDataFrame extends JFrame {
       nombre.setText("");
       precio.setText("");
       cantidad.setValue(0);
-      urlImagen.setText("");
    }
 
    public AddDataFrame(){
@@ -110,6 +135,7 @@ public class AddDataFrame extends JFrame {
       cancelButton.setBounds(230, 520, 150, 50);
       add(cancelButton);
       cancelButton.addActionListener(eventoCancel);
+      urlImagen.addActionListener(eventoImagen);
       ActionListener[] listeners = submitButton.getActionListeners();
       for (ActionListener listener : listeners) {
          submitButton.removeActionListener(listener);

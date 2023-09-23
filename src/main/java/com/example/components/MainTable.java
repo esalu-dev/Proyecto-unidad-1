@@ -17,7 +17,7 @@ import com.example.types.Mueble;
 
 public class MainTable extends JScrollPane{
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
-   final static JTable table = new JTable();
+   public final static JTable table = new JTable();
 
 
    public MainTable(){

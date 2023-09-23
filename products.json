@@ -124,17 +124,5 @@
     "precio": 5000.0,
     "cantidad": 6,
     "imgLink": "ejemplo"
-  },
-  {
-    "nombre": "Cama 3",
-    "precio": 3000.0,
-    "cantidad": 2,
-    "imgLink": "fjdksafjñ"
-  },
-  {
-    "nombre": "Cama 4",
-    "precio": 3000.0,
-    "cantidad": 2,
-    "imgLink": "fjdksafjñ"
   }
 ]

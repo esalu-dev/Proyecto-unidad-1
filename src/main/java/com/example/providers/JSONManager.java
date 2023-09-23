@@ -53,4 +53,15 @@ public class JSONManager {
         muebles.add(mueble);
         saveDataInJSON(muebles);
     }
+    public static void deleteDataFromLocalJSON(int index){
+        try (Reader reader = new FileReader("products.json")) {
+            Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+            muebles = gson.fromJson(reader, tipoLista);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        muebles.remove(index);
+        saveDataInJSON(muebles);
+    }
 }

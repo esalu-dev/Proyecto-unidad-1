@@ -13,7 +13,7 @@ import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
 
-public class AddDataFrame extends JFrame {
+public class EditDataFrame extends JFrame {
    final static MainTitle titulo = new MainTitle("Añadir producto");
    final static MainTitle subtitulo = new MainTitle("Llena los campos para añadir un producto");
    final static MainLabel nombreLabel = new MainLabel("Nombre");
@@ -24,8 +24,9 @@ public class AddDataFrame extends JFrame {
    final static MainSpinner cantidad = new MainSpinner();
    final static MainLabel urlImagenLabel = new MainLabel("URL de la imagen");
    final static MainTextField urlImagen = new MainTextField();
-   final static FormButton submitButton = new FormButton("Añadir", true);
+   final static FormButton submitButton = new FormButton("Editar", true);
    final static FormButton cancelButton = new FormButton("Cancelar", false);
+   static int row;
 
    final ActionListener eventoCancel = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
@@ -58,8 +59,8 @@ public class AddDataFrame extends JFrame {
             
             
             Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), urlImagen.getText());
-            JSONManager.addDataToLocalJSON(mueble);
-            JOptionPane.showMessageDialog(rootPane, "Registro agregado con éxito", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+            JSONManager.editDataFromLocalJSON(row, mueble);
+            JOptionPane.showMessageDialog(rootPane, "Registro editado con éxito", "Registro editado", JOptionPane.INFORMATION_MESSAGE);
             Main.inventario.refreshTable();
             dispose();
          }
@@ -71,10 +72,19 @@ public class AddDataFrame extends JFrame {
       cantidad.setValue(0);
       urlImagen.setText("");
    }
+   public void setFields(Mueble mueble){
 
-   public AddDataFrame(){
-      super("Añadir un producto al inventario");
+      nombre.setText(mueble.getNombre());
+      precio.setText(String.valueOf(mueble.getPrecio()));
+      cantidad.setValue(mueble.getCantidad());
+      urlImagen.setText(mueble.getImgLink());
+   }
+
+   public EditDataFrame(Mueble mueble, int row){
+      super("Editar producto");
+      EditDataFrame.row = row;
       restartFields();
+      setFields(mueble);
       setAlwaysOnTop(true);
       subtitulo.setFont(new Font("Poppins", Font.PLAIN, 12));
       setResizable(false);

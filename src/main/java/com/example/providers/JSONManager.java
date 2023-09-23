@@ -64,4 +64,25 @@ public class JSONManager {
         muebles.remove(index);
         saveDataInJSON(muebles);
     }
+    public static Mueble getRowFromLocalJSON(int index){
+        try (Reader reader = new FileReader("products.json")) {
+            Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+            muebles = gson.fromJson(reader, tipoLista);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return muebles.get(index);
+    }
+    public static void editDataFromLocalJSON(int index, Mueble mueble){
+        try (Reader reader = new FileReader("products.json")) {
+            Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+            muebles = gson.fromJson(reader, tipoLista);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        muebles.set(index, mueble);
+        saveDataInJSON(muebles);
+    }
 }

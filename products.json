@@ -118,11 +118,5 @@
     "precio": 250.0,
     "cantidad": 10,
     "imgLink": "ejemplo"
-  },
-  {
-    "nombre": "Cama 2",
-    "precio": 5000.0,
-    "cantidad": 6,
-    "imgLink": "ejemplo"
   }
 ]

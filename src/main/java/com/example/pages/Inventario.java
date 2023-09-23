@@ -8,11 +8,13 @@ import javax.swing.JPanel;
 
 import com.example.Main;
 import com.example.components.AddDataFrame;
+import com.example.components.EditDataFrame;
 import com.example.components.MainTable;
 import com.example.components.MainTitle;
 import com.example.components.TableButton;
 import com.example.constants.Colors;
 import com.example.providers.JSONManager;
+import com.example.types.Mueble;
 
 public class Inventario extends JPanel {
 
@@ -33,8 +35,14 @@ public class Inventario extends JPanel {
   final static ActionListener eventoEdit = new ActionListener() {
     public void actionPerformed(ActionEvent ev){
       if(ev.getSource().equals(btnEditar)){
-        AddDataFrame añadir = new AddDataFrame();
-        añadir.setVisible(true);
+        int row = MainTable.table.getSelectedRow();
+        if(row == -1){
+          JOptionPane.showMessageDialog(null, "Por favor, selecciona un mueble", "Error", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+        Mueble r = JSONManager.getRowFromLocalJSON(row);
+        EditDataFrame editar = new EditDataFrame(r, row);
+        editar.setVisible(true);
       }
     }
   };

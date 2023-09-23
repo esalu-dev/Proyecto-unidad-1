@@ -12,7 +12,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-import com.example.constants.Colors;
 import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
@@ -26,7 +25,7 @@ public class MainTable extends JScrollPane{
    }
 
    private static JTable createCustomTable() {
-      String[] columnNames = {"ID", "Nombre", "Precio", "Cantidad"};
+      String[] columnNames = {"Nombre", "Precio", "Cantidad"};
       DefaultTableModel model = new DefaultTableModel(columnNames, 0){
          @Override
          public boolean isCellEditable(int row, int column){
@@ -36,7 +35,7 @@ public class MainTable extends JScrollPane{
       
       List<Mueble> muebles =JSONManager.getDataFromLocalJSON();
       for (Mueble mueble : muebles) {
-         Object[] row = {mueble.getId(), mueble.getNombre(), mueble.getPrecio(), mueble.getCantidad()};
+         Object[] row = {mueble.getNombre(), mueble.getPrecio(), mueble.getCantidad()};
          model.addRow(row);
       }
 

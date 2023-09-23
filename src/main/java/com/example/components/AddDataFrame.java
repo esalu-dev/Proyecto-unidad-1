@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.example.constants.Colors;
+import com.example.providers.JSONManager;
+import com.example.types.Mueble;
 
 
 public class AddDataFrame extends JFrame {
@@ -15,8 +17,6 @@ public class AddDataFrame extends JFrame {
    final static MainTitle subtitulo = new MainTitle("Llena los campos para añadir un producto");
    final static MainLabel nombreLabel = new MainLabel("Nombre");
    final static MainTextField nombre = new MainTextField();
-   final static MainLabel idLabel = new MainLabel("ID");
-   final static MainSpinner id = new MainSpinner();
    final static MainLabel precioLabel = new MainLabel("Precio");
    final static MainTextField precio = new MainTextField();
    final static MainLabel cantidadLabel = new MainLabel("Cantidad");
@@ -54,12 +54,10 @@ public class AddDataFrame extends JFrame {
                JOptionPane.showMessageDialog(rootPane, "La cantidad debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
                return;
             }
-            if(Integer.parseInt(id.getValue().toString()) <= 0){
-               JOptionPane.showMessageDialog(rootPane, "El ID debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
-               return;
-            }
             
-
+            
+            Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), urlImagen.getText());
+            JSONManager.addDataToLocalJSON(mueble);
             JOptionPane.showMessageDialog(rootPane, "Registro agregado con éxito", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
             dispose();
          }
@@ -84,21 +82,17 @@ public class AddDataFrame extends JFrame {
       add(nombreLabel);
       nombre.setBounds(20, 150, 360, 30);
       add(nombre);
-      idLabel.setBounds(20, 170, 100, 100);
-      add(idLabel);
-      id.setBounds(20, 230, 360, 30);
-      add(id);
-      precioLabel.setBounds(20, 250, 100, 100);
+      precioLabel.setBounds(20, 170, 100, 100);
       add(precioLabel);
-      precio.setBounds(20, 310, 360, 30);
+      precio.setBounds(20, 230, 360, 30);
       add(precio);
-      cantidadLabel.setBounds(20, 330, 100, 100);
+      cantidadLabel.setBounds(20, 250, 100, 100);
       add(cantidadLabel);
-      cantidad.setBounds(20, 390, 360, 30);
+      cantidad.setBounds(20, 310, 360, 30);
       add(cantidad);
-      urlImagenLabel.setBounds(20, 410, 150, 100);
+      urlImagenLabel.setBounds(20, 330, 150, 100);
       add(urlImagenLabel);
-      urlImagen.setBounds(20, 470, 360, 30);
+      urlImagen.setBounds(20, 390, 360, 30);
       add(urlImagen);
       submitButton.setBounds(20, 520, 150, 50);
       add(submitButton);

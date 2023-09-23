@@ -27,7 +27,12 @@ public class MainTable extends JScrollPane{
 
    private static JTable createCustomTable() {
       String[] columnNames = {"ID", "Nombre", "Precio", "Cantidad"};
-      DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+      DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+         @Override
+         public boolean isCellEditable(int row, int column){
+            return false;
+         }
+      };
       
       List<Mueble> muebles =JSONManager.getDataFromLocalJSON();
       for (Mueble mueble : muebles) {

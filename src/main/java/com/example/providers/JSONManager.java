@@ -24,6 +24,7 @@ public class JSONManager {
     try (Writer writer = new FileWriter("products.json")) {
         gson.toJson(listaMuebles, writer);
         System.out.println("Datos guardados en el archivo JSON");
+        writer.close();
     } catch (IOException e) {
         e.printStackTrace();
     }
@@ -34,6 +35,7 @@ public class JSONManager {
         try (Reader reader = new FileReader("products.json")) {
             Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
             muebles = gson.fromJson(reader, tipoLista);
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

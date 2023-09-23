@@ -1,7 +1,11 @@
 package com.example.pages;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 
+import com.example.components.AddDataFrame;
 import com.example.components.MainTable;
 import com.example.components.MainTitle;
 import com.example.components.TableButton;
@@ -15,6 +19,15 @@ public class Inventario extends JPanel {
   final static TableButton btnEditar = new TableButton("Editar");
   final static TableButton btnEliminar = new TableButton("Eliminar");
 
+  final static ActionListener eventoAdd = new ActionListener() {
+    public void actionPerformed(ActionEvent ev){
+      if(ev.getSource().equals(btnAgregar)){
+        AddDataFrame añadir = new AddDataFrame();
+        añadir.setVisible(true);
+      }
+    }
+  };
+
 
   public Inventario(){
     setSize(500, 500);
@@ -22,6 +35,7 @@ public class Inventario extends JPanel {
     setLayout(null);
     titulo.setForeground(Colors.lightPurple);
     titulo.setBounds(50, 50, 200, 50);
+    btnAgregar.addActionListener(eventoAdd);
 
     btnAgregar.setBackground(Colors.darkPurple);
     btnEditar.setBackground(Colors.darkPurple);

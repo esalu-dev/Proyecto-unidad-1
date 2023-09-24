@@ -1,5 +1,6 @@
 package com.example.components;
 
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.ScrollPane;
@@ -28,13 +29,28 @@ public class CartPanel extends ScrollPane {
          return;
       }
       indexList.add(indexMueble);
-      ProductCartPanel productCartPanel = new ProductCartPanel(mueble, index+1);
+      ProductCartPanel productCartPanel = new ProductCartPanel(mueble, index+1, indexMueble);
       panel.add(productCartPanel);
       panel.revalidate();
       panel.repaint();
       index++;
-      System.out.println("Agregado");
+      System.out.println("Agregado"+indexMueble+""+index);
    }
+   public static void removeProduct(int indexMueble) {
+      for (Component component : panel.getComponents()) {
+          if (component instanceof ProductCartPanel) {
+              ProductCartPanel cartPanel = (ProductCartPanel) component;
+              if (cartPanel.indexMueble == indexMueble) {
+                  panel.remove(cartPanel);
+                  indexList.remove(Integer.valueOf(indexMueble));
+                  panel.revalidate();
+                  panel.repaint();
+                  index--;
+                  break; 
+              }
+          }
+      }
+  }
    
    public CartPanel(){
       setSize(300, 500);

@@ -14,8 +14,10 @@ public class ProductsPanel extends JPanel {
 
    public void getData(){
       this.removeAll();
+      int index=0;
       for(Mueble mueble : JSONManager.getDataFromLocalJSON()){
-         add(new Card(mueble.getNombre(), String.valueOf(mueble.getPrecio()), mueble.getImgLink(),mueble.getCantidad() , mueble.isAvailable()));
+         add(new Card(mueble.getNombre(), String.valueOf(mueble.getPrecio()), mueble.getImgLink(),mueble.getCantidad() , mueble.isAvailable(), index));
+         index++;
          this.revalidate();
          this.repaint();
       }

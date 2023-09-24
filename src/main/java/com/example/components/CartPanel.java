@@ -37,6 +37,8 @@ public class CartPanel extends ScrollPane {
    }
    
    public CartPanel(){
+      setSize(300, 500);
+      panel.setSize(300,500);
       panel.setBackground(Colors.mainWhite);
       panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
       panel.setLayout(new GridLayout(0,1));

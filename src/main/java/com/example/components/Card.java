@@ -41,7 +41,9 @@ public class Card extends JPanel {
       precio.setText(formattedPrice);
       cantidad.setText("Disponible: "+String.valueOf(Cantidad));
       image = new ImageIcon(imgLink);
-      img = image.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
+      int alturaDeseada = 80;
+      int nuevaAnchura = (int) ((double) alturaDeseada / image.getImage().getHeight(null) * image.getImage().getWidth(null));
+      img = image.getImage().getScaledInstance(nuevaAnchura, alturaDeseada, Image.SCALE_SMOOTH);
       imagen  = new JLabel(new ImageIcon(img));
       
 

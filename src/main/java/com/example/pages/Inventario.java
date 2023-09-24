@@ -61,6 +61,7 @@ public class Inventario extends JPanel {
           JOptionPane.showMessageDialog(null, "Mueble eliminado", "Éxito", JOptionPane.INFORMATION_MESSAGE);
           JSONManager.deleteDataFromLocalJSON(row);
           Main.inventario.refreshTable();
+          Ventas.productsPanel.getData();
         }
 
       }

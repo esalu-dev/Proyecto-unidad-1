@@ -8,6 +8,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.example.Main;
 import com.example.constants.Colors;
@@ -25,12 +26,36 @@ public class EditDataFrame extends JFrame {
    final static MainTextField precio = new MainTextField();
    final static MainLabel cantidadLabel = new MainLabel("Cantidad");
    final static MainSpinner cantidad = new MainSpinner();
-   final static MainLabel urlImagenLabel = new MainLabel("URL de la imagen");
+   final static MainLabel urlImagenLabel = new MainLabel("Ruta de la imagen (opcional)");
    final static FormButton urlImagen = new FormButton("Seleccionar imagen", true);
    final static FormButton submitButton = new FormButton("Editar", true);
    final static FormButton cancelButton = new FormButton("Cancelar", false);
-   String rutaArchivo;
+   static String rutaArchivo;
    static int row;
+   static {
+      urlImagen.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent ev) {
+              JFileChooser fileChooser = new JFileChooser();
+              FileNameExtensionFilter filtroImagenes = new FileNameExtensionFilter("Imágenes (jpg, jpeg, png, ...)", "jpg", "jpeg", "png");
+  
+              // Abre el cuadro de diálogo para seleccionar un archivo
+              fileChooser.setFileFilter(filtroImagenes);
+              int seleccion = fileChooser.showOpenDialog(precio);
+  
+              if (seleccion == JFileChooser.APPROVE_OPTION) {
+                  // El usuario ha seleccionado un archivo
+                  File archivoSeleccionado = fileChooser.getSelectedFile();
+                  rutaArchivo = archivoSeleccionado.getAbsolutePath();
+                  JOptionPane.showMessageDialog(precio, "Has seleccionado: " + rutaArchivo);
+                  urlImagen.setText(rutaArchivo);
+              } else {
+                  // El usuario canceló la selección
+                  JOptionPane.showMessageDialog(precio, "Selección cancelada");
+              }
+          }
+      });
+  }
+  
 
    final ActionListener eventoCancel = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
@@ -39,25 +64,7 @@ public class EditDataFrame extends JFrame {
          }
       }
    };
-   final ActionListener eventoImagen = new ActionListener(){
-      public void actionPerformed(ActionEvent ev){
-         JFileChooser fileChooser = new JFileChooser();
-         // Abre el cuadro de diálogo para seleccionar un archivo
-         int seleccion = fileChooser.showOpenDialog(EditDataFrame.this);
-
-         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            // El usuario ha seleccionado un archivo
-            File archivoSeleccionado = fileChooser.getSelectedFile();
-            rutaArchivo = archivoSeleccionado.getAbsolutePath();
-            JOptionPane.showMessageDialog(EditDataFrame.this, "Has seleccionado: " + rutaArchivo);
-            urlImagen.setText(rutaArchivo);
-
-         } else {
-            // El usuario canceló la selección
-            JOptionPane.showMessageDialog(EditDataFrame.this, "Selección cancelada");
-         }
-      }
-   };
+   
    final ActionListener eventoSubmit = new ActionListener() {
       public void actionPerformed(ActionEvent ev){
          if(ev.getSource().equals(submitButton)){
@@ -141,7 +148,6 @@ public class EditDataFrame extends JFrame {
       cancelButton.setBounds(230, 520, 150, 50);
       add(cancelButton);
       cancelButton.addActionListener(eventoCancel);
-      urlImagen.addActionListener(eventoImagen);
       ActionListener[] listeners = submitButton.getActionListeners();
       for (ActionListener listener : listeners) {
          submitButton.removeActionListener(listener);

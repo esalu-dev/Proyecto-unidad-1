@@ -12,10 +12,6 @@ import com.example.types.Mueble;
 public class CartPanel extends ScrollPane {
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
    final static Mueble ejemplo = new Mueble("Antecomedor", 15000, 10, "null");
-   
-   
-
-
    public CartPanel(){
       JPanel panel = new JPanel();
       panel.setBackground(Colors.mainWhite);
@@ -27,8 +23,5 @@ public class CartPanel extends ScrollPane {
          panel.add(productCartPanel);
       }
       add(panel);
-
-      
-
    }
 }

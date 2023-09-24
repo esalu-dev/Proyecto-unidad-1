@@ -31,12 +31,13 @@ public class ProductCartPanel extends JPanel {
          }
       });
       
-      setSize(290, 200);
+      setSize(290, 100);
       setLayout(null);
-      name.setBounds(10, 0, 155, 50);
-      price.setBounds(165, 0, 75, 50);
-      quantity.setBounds(240, 0, 50, 50);
-      deleteButton.setBounds(240, 50, 50, 50);
+      name.setBounds(10, 10, 200, 30);
+      price.setBounds(210, 10, 80, 30);
+      quantity.setBounds(10, 50, 50, 30);
+      deleteButton.setBounds(250, 50, 30, 30);
+      
       name.setFont(titleFont);
       price.setFont(titleFont);
       quantity.setFont(titleFont);

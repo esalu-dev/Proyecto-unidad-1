@@ -2,121 +2,127 @@
   {
     "nombre": "Silla",
     "precio": 500.0,
-    "cantidad": 2,
-    "imgLink": "facebook.png"
+    "cantidad": 1,
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\silla.png"
   },
   {
     "nombre": "Mesa",
     "precio": 1000.0,
     "cantidad": 5,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\mesa.png"
   },
   {
     "nombre": "Sofá",
     "precio": 2500.0,
     "cantidad": 3,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\sofa.png"
   },
   {
     "nombre": "Armario",
     "precio": 15000.0,
     "cantidad": 8,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\armario.png"
   },
   {
     "nombre": "Escritorio",
     "precio": 1200.0,
     "cantidad": 6,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\escritorio.png"
   },
   {
     "nombre": "Mecedora",
     "precio": 800.0,
     "cantidad": 12,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\mecedora.png"
   },
   {
     "nombre": "Cama",
     "precio": 2500.0,
     "cantidad": 4,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\cama.png"
   },
   {
     "nombre": "Banco",
     "precio": 700.0,
     "cantidad": 15,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\banco.png"
   },
   {
     "nombre": "Estantería",
     "precio": 900.0,
     "cantidad": 7,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\estanteria.png"
   },
   {
     "nombre": "Mesita de noche",
     "precio": 700.0,
     "cantidad": 9,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\mesitadenoche.png"
   },
   {
     "nombre": "Sillón",
     "precio": 1800.0,
     "cantidad": 5,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\sillon.png"
   },
   {
     "nombre": "Taburete",
     "precio": 300.0,
     "cantidad": 20,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\taburete.png"
   },
   {
     "nombre": "Perchero",
     "precio": 400.0,
     "cantidad": 15,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\perchero.png"
   },
   {
     "nombre": "Cómoda",
     "precio": 2000.0,
     "cantidad": 6,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\comoda.png"
   },
   {
     "nombre": "Biblioteca",
     "precio": 1500.0,
     "cantidad": 3,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\biblioteca.jpg"
   },
   {
     "nombre": "Mesa de centro",
     "precio": 800.0,
     "cantidad": 10,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\mesadecentro.jpg"
   },
   {
     "nombre": "Escritorio esquinero",
     "precio": 1200.0,
     "cantidad": 7,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\escritorioesquinero.jpg"
   },
   {
     "nombre": "Estantería modular",
     "precio": 1000.0,
     "cantidad": 5,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\estanteriamodular.png"
   },
   {
     "nombre": "Armario ropero",
     "precio": 3000.0,
     "cantidad": 2,
-    "imgLink": "ejemplo"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\armarioropero.png"
   },
   {
     "nombre": "Taburete bajo",
     "precio": 250.0,
     "cantidad": 10,
-    "imgLink": "D:\\System\\Pictures\\Camera Roll\\WIN_20230202_09_06_40_Pro.jpg"
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\taburetebajo.png"
+  },
+  {
+    "nombre": "Juego de sala",
+    "precio": 25000.0,
+    "cantidad": 1,
+    "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\juegodesala.png"
   }
 ]

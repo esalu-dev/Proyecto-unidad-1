@@ -10,4 +10,5 @@ public class Colors {
    public final static Color lightPurple = java.awt.Color.decode("#0455BF");
    public final static Color darkPurple = java.awt.Color.decode("#023e8c");
    public final static Color mainGreen = java.awt.Color.decode("#72bf77");
+   public final static Color loginBlue = java.awt.Color.decode("#0062ae");
 }

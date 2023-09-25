@@ -34,7 +34,7 @@ public class EditDataFrame extends JFrame {
    static int row;
    static {
       urlImagen.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent ev) {
+         public void actionPerformed(ActionEvent ev) {
               JFileChooser fileChooser = new JFileChooser();
               FileNameExtensionFilter filtroImagenes = new FileNameExtensionFilter("Imágenes (jpg, jpeg, png, ...)", "jpg", "jpeg", "png");
   

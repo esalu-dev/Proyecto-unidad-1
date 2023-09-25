@@ -2,7 +2,7 @@
   {
     "nombre": "Silla",
     "precio": 500.0,
-    "cantidad": 0,
+    "cantidad": 2,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\silla.png"
   },
   {
@@ -38,7 +38,7 @@
   {
     "nombre": "Cama",
     "precio": 2500.0,
-    "cantidad": 3,
+    "cantidad": 0,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\cama.png"
   },
   {

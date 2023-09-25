@@ -2,17 +2,22 @@ package com.esalu;
 
 
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+// import javax.swing.UnsupportedLookAndFeelException;
 
+import com.esalu.components.LogInFrame;
 import com.esalu.components.PanelDerecho;
 import com.esalu.pages.Configuration;
 import com.esalu.pages.Inventario;
 import com.esalu.pages.Ventas;
+import com.esalu.providers.JSONLogIn;
+import com.esalu.types.Users;
 
-import mdlaf.MaterialLookAndFeel;
+// import mdlaf.MaterialLookAndFeel;
 
 
 public class Main {
@@ -58,16 +63,32 @@ public class Main {
         ventana.revalidate();
         ventana.repaint();
     }
+    public static void logIn(String username, String password){
+        System.out.println(username + "p" + password);
+        List<Users> users = JSONLogIn.getDataFromLocalJSON();;
+        for (Users user : users) {
+            System.out.println(user.toString());
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)){ 
+                JOptionPane.showMessageDialog(ventana, "Bienvenido " + user.getUsername(), "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                logInFrame.dispose();
+                setDesign();
+                ventana.setResizable(false);
+                ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ventana.setSize(1280, 720);
+                ventana.setLayout(null);
+                changePaneltoVentas();
+                ventana.setLocationRelativeTo(null);
+                ventana.setVisible(true);
+                return;
+            }
+            
+        }
+        JOptionPane.showMessageDialog(ventana, "Usuario o contraseña incorrectos", "Error", JOptionPane.INFORMATION_MESSAGE);
+        return;
+    }
+    final static LogInFrame logInFrame = new LogInFrame();
     public static void main(String[] args) {
-        setDesign();
-        ventana.setResizable(false);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setSize(1280, 720);
-        ventana.setLayout(null);
-        changePaneltoInventario();
-        
-        ventana.setLocationRelativeTo(null);
-        ventana.setVisible(true);
+        logInFrame.setVisible(true);
     }
 
 

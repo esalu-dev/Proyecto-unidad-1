@@ -103,7 +103,6 @@ public class EditDataFrame extends JFrame {
       cantidad.setValue(0);
    }
    public void setFields(Mueble mueble){
-
       nombre.setText(mueble.getNombre());
       precio.setText(String.valueOf(mueble.getPrecio()));
       cantidad.setValue(mueble.getCantidad());

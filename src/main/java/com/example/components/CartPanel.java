@@ -29,12 +29,11 @@ public class CartPanel extends ScrollPane {
          return;
       }
       indexList.add(indexMueble);
-      ProductCartPanel productCartPanel = new ProductCartPanel(mueble, index+1, indexMueble);
+      ProductCartPanel productCartPanel = new ProductCartPanel(mueble, indexMueble);
       panel.add(productCartPanel);
       panel.revalidate();
       panel.repaint();
       index++;
-      System.out.println("Agregado"+indexMueble+""+index);
    }
    public static void removeProduct(int indexMueble) {
       for (Component component : panel.getComponents()) {

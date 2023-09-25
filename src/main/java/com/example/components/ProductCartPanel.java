@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
-import javax.swing.Action;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -14,33 +13,44 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import com.example.pages.Ventas;
 import com.example.types.Mueble;
 
 public class ProductCartPanel extends JPanel implements ActionListener {
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 13);
    public int indexMueble;
+   private int lastQuantity = 1;
+   private double totalPrice;
 
    @Override
    public void actionPerformed(ActionEvent e) {
-      System.out.println(indexMueble);
       CartPanel.removeProduct(indexMueble);
+      Ventas.removeTotal(totalPrice);
    }
    
-   public ProductCartPanel(Mueble mueble, int index, int indexMueble){
+   public ProductCartPanel(Mueble mueble, int indexMueble){
       this.indexMueble = indexMueble;
-      JLabel name = new JLabel(String.valueOf(index)+". "+mueble.getNombre());
+      totalPrice = mueble.getPrecio();
+      JLabel name = new JLabel(mueble.getNombre());
       JSpinner quantity = new JSpinner(new SpinnerNumberModel(1,1,mueble.getCantidad(),1));
       NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
       String priceString = currencyFormatter.format(mueble.getPrecio());
       JLabel price = new JLabel(priceString);
+      Ventas.addTotal(mueble.getPrecio());
       CartDeleteButton deleteButton = new CartDeleteButton();
       quantity.addChangeListener(new ChangeListener() {
          @Override
          public void stateChanged(ChangeEvent e) {
-               int selectedQuantity = (int) quantity.getValue();
-               double totalPrice = mueble.getPrecio() * selectedQuantity;
-               String totalPriceString = currencyFormatter.format(totalPrice);
-               price.setText(totalPriceString);
+            if((int) quantity.getValue() > lastQuantity){
+               Ventas.addTotal(mueble.getPrecio());
+            }else{
+               Ventas.removeTotal(mueble.getPrecio());
+            }
+            int selectedQuantity = (int) quantity.getValue();
+            lastQuantity = selectedQuantity;
+            totalPrice = mueble.getPrecio() * selectedQuantity;
+            String totalPriceString = currencyFormatter.format(totalPrice);
+            price.setText(totalPriceString);
          }
       });
       

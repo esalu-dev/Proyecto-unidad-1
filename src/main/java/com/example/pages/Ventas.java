@@ -51,6 +51,11 @@ public class Ventas extends JPanel {
       }
       String clientName = JOptionPane.showInputDialog(Main.ventana, "Ingresa el nombre del cliente", "Nombre del cliente", JOptionPane.QUESTION_MESSAGE);
       if(clientName == null){
+        JOptionPane.showMessageDialog(Main.ventana, "Venta cancelada", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+      }
+      if(clientName.trim().equals("")){
+        JOptionPane.showMessageDialog(Main.ventana, "El nombre del cliente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
         return;
       }
       String mensaje = "Compra realizada por " + clientName + "\nTotal a pagar: " + currencyFormatter.format(priceToPay)+ "\n\nProductos comprados:\n";

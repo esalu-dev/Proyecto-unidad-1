@@ -2,6 +2,8 @@ package com.example.pages;
 
 import java.awt.Font;
 import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.JLabel;
@@ -12,6 +14,7 @@ import com.example.components.MainTitle;
 import com.example.components.ProductsPanel;
 import com.example.components.TableButton;
 import com.example.constants.Colors;
+import com.example.types.Mueble;
 
 public class Ventas extends JPanel {
   final static MainTitle etiqueta = new MainTitle("Ventas");
@@ -35,7 +38,25 @@ public class Ventas extends JPanel {
       tableButton.setEnabled(false);
     }
   }
-
+  
+  final static ActionListener buyEvent = new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      CartPanel.panel.removeAll();
+      CartPanel.panel.revalidate();
+      CartPanel.panel.repaint();
+      CartPanel.index = 0;
+      CartPanel.indexList.clear();
+      for(Mueble mueble : CartPanel.mueblesInCart){
+        System.out.println(mueble.toString());
+      }
+      CartPanel.mueblesInCart.clear();
+      priceToPay = 0;
+      setBuyButtonEnabled(priceToPay);
+      String totalPriceString = currencyFormatter.format(priceToPay);
+      totalLabel.setText("Total: " + totalPriceString);
+    }
+  };
   public static void addTotal (double total) {
     priceToPay += total;
     setBuyButtonEnabled(priceToPay);
@@ -72,6 +93,7 @@ public class Ventas extends JPanel {
     tableButton.setBounds(630, 600, 300, 50);
     tableButton.setForeground(Colors.mainWhite);
     tableButton.setBackground(Colors.darkBlue);
+    tableButton.addActionListener(buyEvent);
     add(tableButton);
     
   }

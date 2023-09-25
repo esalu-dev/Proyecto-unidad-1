@@ -53,4 +53,7 @@ public class Mueble {
       String[] mueble = {nombre, String.valueOf(precio), String.valueOf(cantidad), imgLink};
       return mueble;
    }
+   public String toString(){
+      return nombre + " " + precio + " " + cantidad + " " + imgLink;
+   }
 }

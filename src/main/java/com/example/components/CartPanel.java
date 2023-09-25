@@ -19,9 +19,11 @@ public class CartPanel extends ScrollPane {
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
 
    
-   static JPanel panel = new JPanel();
-   static int index = 0;
-   static ArrayList<Integer> indexList = new ArrayList<Integer>();
+   public static JPanel panel = new JPanel();
+   public static int index = 0;
+   public static ArrayList<Integer> indexList = new ArrayList<Integer>();
+   public static ArrayList<Mueble> mueblesInCart = new ArrayList<Mueble>();
+
    public static void addProduct(Mueble mueble, int indexMueble){
 
       if(indexList.contains(indexMueble)){
@@ -31,17 +33,19 @@ public class CartPanel extends ScrollPane {
       indexList.add(indexMueble);
       ProductCartPanel productCartPanel = new ProductCartPanel(mueble, indexMueble);
       panel.add(productCartPanel);
+      mueblesInCart.add(mueble);
       panel.revalidate();
       panel.repaint();
       index++;
    }
-   public static void removeProduct(int indexMueble) {
+   public static void removeProduct(Mueble mueble, int indexMueble) {
       for (Component component : panel.getComponents()) {
           if (component instanceof ProductCartPanel) {
               ProductCartPanel cartPanel = (ProductCartPanel) component;
               if (cartPanel.indexMueble == indexMueble) {
                   panel.remove(cartPanel);
                   indexList.remove(Integer.valueOf(indexMueble));
+                  mueblesInCart.remove(cartPanel.mueble);
                   panel.revalidate();
                   panel.repaint();
                   index--;

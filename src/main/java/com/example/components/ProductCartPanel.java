@@ -18,18 +18,20 @@ import com.example.types.Mueble;
 
 public class ProductCartPanel extends JPanel implements ActionListener {
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 13);
+   Mueble mueble;
    public int indexMueble;
    private int lastQuantity = 1;
    private double totalPrice;
 
    @Override
    public void actionPerformed(ActionEvent e) {
-      CartPanel.removeProduct(indexMueble);
+      CartPanel.removeProduct(mueble, indexMueble);
       Ventas.removeTotal(totalPrice);
    }
    
    public ProductCartPanel(Mueble mueble, int indexMueble){
       this.indexMueble = indexMueble;
+      this.mueble = mueble;
       totalPrice = mueble.getPrecio();
       JLabel name = new JLabel(mueble.getNombre());
       JSpinner quantity = new JSpinner(new SpinnerNumberModel(1,1,mueble.getCantidad(),1));

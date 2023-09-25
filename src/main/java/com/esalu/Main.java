@@ -26,6 +26,7 @@ public class Main {
     public final static Inventario inventario = new Inventario();
     final static Ventas ventas = new Ventas();
     final static Configuration configuracion = new Configuration();
+    static Users usuario;
 
     public static void setDesign(){
         try {
@@ -40,12 +41,17 @@ public class Main {
         }
     }
     public static void changePaneltoInventario(){
-        ventana.getContentPane().removeAll();
-        ventana.getContentPane().add(new PanelDerecho());
-        inventario.setBounds(300, 0, 967, 683);
-        ventana.getContentPane().add(inventario);
-        ventana.revalidate();
-        ventana.repaint();
+        if(usuario.getIsAdmin()){
+            ventana.getContentPane().removeAll();
+            ventana.getContentPane().add(new PanelDerecho());
+            inventario.setBounds(300, 0, 967, 683);
+            ventana.getContentPane().add(inventario);
+            ventana.revalidate();
+            ventana.repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(Main.ventana, "No tienes permisos para ver esta sección", "Permiso denegado", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public static void changePaneltoVentas(){
         ventana.getContentPane().removeAll();
@@ -56,12 +62,17 @@ public class Main {
         ventana.repaint();
     }
     public static void changePaneltoConfiguracion(){
-        ventana.getContentPane().removeAll();
-        ventana.getContentPane().add(new PanelDerecho());
-        configuracion.setBounds(300, 0, 967, 683);
-        ventana.getContentPane().add(configuracion);
-        ventana.revalidate();
-        ventana.repaint();
+        if(usuario.getIsAdmin()){
+            ventana.getContentPane().removeAll();
+            ventana.getContentPane().add(new PanelDerecho());
+            configuracion.setBounds(300, 0, 967, 683);
+            ventana.getContentPane().add(configuracion);
+            ventana.revalidate();
+            ventana.repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(Main.ventana, "No tienes permisos para ver esta sección", "Permiso denegado", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public static void logIn(String username, String password){
         System.out.println(username + "p" + password);
@@ -69,6 +80,7 @@ public class Main {
         for (Users user : users) {
             System.out.println(user.toString());
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){ 
+                usuario = user;
                 JOptionPane.showMessageDialog(ventana, "Bienvenido " + user.getUsername(), "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                 logInFrame.dispose();
                 setDesign();

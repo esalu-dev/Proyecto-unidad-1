@@ -108,6 +108,7 @@ public class EditDataFrame extends JFrame {
       precio.setText(String.valueOf(mueble.getPrecio()));
       cantidad.setValue(mueble.getCantidad());
       urlImagen.setText(mueble.getImgLink());
+      rutaArchivo = mueble.getImgLink();
    }
 
    public EditDataFrame(Mueble mueble, int row){

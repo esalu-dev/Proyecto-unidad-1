@@ -7,13 +7,16 @@ import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.example.Main;
 import com.example.components.CartPanel;
 import com.example.components.MainTitle;
 import com.example.components.ProductsPanel;
 import com.example.components.TableButton;
 import com.example.constants.Colors;
+import com.example.providers.JSONManager;
 import com.example.types.Mueble;
 
 public class Ventas extends JPanel {
@@ -42,19 +45,34 @@ public class Ventas extends JPanel {
   final static ActionListener buyEvent = new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
+      int opcion = JOptionPane.showConfirmDialog(Main.ventana, "¿Estás seguro de realizar la compra?", "Confirmar compra", JOptionPane.YES_NO_OPTION);
+      if(opcion == JOptionPane.NO_OPTION){
+        return;
+      }
+      String clientName = JOptionPane.showInputDialog(Main.ventana, "Ingresa el nombre del cliente", "Nombre del cliente", JOptionPane.QUESTION_MESSAGE);
+      if(clientName == null){
+        return;
+      }
+      String mensaje = "Compra realizada por " + clientName + "\nTotal a pagar: " + currencyFormatter.format(priceToPay)+ "\n\nProductos comprados:\n";
+      for(Mueble mueble : CartPanel.mueblesInCart){
+        mensaje += mueble.getCantidad() + " "+ mueble.getNombre() + "\n";
+        for(int index : CartPanel.indexList){
+          JSONManager.decreaseQuantityFromLocalJSON(index, mueble.getCantidad());
+        }
+      }
+      JOptionPane.showMessageDialog(Main.ventana, mensaje, "Compra realizada", JOptionPane.INFORMATION_MESSAGE);
       CartPanel.panel.removeAll();
       CartPanel.panel.revalidate();
       CartPanel.panel.repaint();
       CartPanel.index = 0;
       CartPanel.indexList.clear();
-      for(Mueble mueble : CartPanel.mueblesInCart){
-        System.out.println(mueble.toString());
-      }
       CartPanel.mueblesInCart.clear();
       priceToPay = 0;
       setBuyButtonEnabled(priceToPay);
       String totalPriceString = currencyFormatter.format(priceToPay);
       totalLabel.setText("Total: " + totalPriceString);
+      Main.inventario.refreshTable();
+      Ventas.productsPanel.getData();
     }
   };
   public static void addTotal (double total) {

@@ -35,6 +35,7 @@ public class ProductCartPanel extends JPanel implements ActionListener {
       totalPrice = mueble.getPrecio();
       JLabel name = new JLabel(mueble.getNombre());
       JSpinner quantity = new JSpinner(new SpinnerNumberModel(1,1,mueble.getCantidad(),1));
+      mueble.setCantidad(quantity.getValue().hashCode());
       NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
       String priceString = currencyFormatter.format(mueble.getPrecio());
       JLabel price = new JLabel(priceString);
@@ -49,6 +50,7 @@ public class ProductCartPanel extends JPanel implements ActionListener {
                Ventas.removeTotal(mueble.getPrecio());
             }
             int selectedQuantity = (int) quantity.getValue();
+            mueble.setCantidad(selectedQuantity);
             lastQuantity = selectedQuantity;
             totalPrice = mueble.getPrecio() * selectedQuantity;
             String totalPriceString = currencyFormatter.format(totalPrice);

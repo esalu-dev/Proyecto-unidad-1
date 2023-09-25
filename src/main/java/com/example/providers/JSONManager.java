@@ -85,4 +85,15 @@ public class JSONManager {
         muebles.set(index, mueble);
         saveDataInJSON(muebles);
     }
+    public static void decreaseQuantityFromLocalJSON(int index, int quantity){
+        try (Reader reader = new FileReader("products.json")) {
+            Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+            muebles = gson.fromJson(reader, tipoLista);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        muebles.get(index).setCantidad(muebles.get(index).getCantidad() - quantity);
+        saveDataInJSON(muebles);
+    }
 }

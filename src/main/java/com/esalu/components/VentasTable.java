@@ -37,7 +37,6 @@ public class VentasTable extends JScrollPane {
 
          @Override
          protected void setValue(Object value) {
-            System.out.println(value);
             // Formatear el valor de la celda como un precio
             if (value != null) {
                setHorizontalAlignment(JLabel.CENTER);

@@ -10,7 +10,9 @@ import javax.swing.UIManager;
 // import javax.swing.UnsupportedLookAndFeelException;
 
 import com.esalu.components.LogInFrame;
+import com.esalu.components.MainTitle;
 import com.esalu.components.PanelDerecho;
+import com.esalu.constants.Colors;
 import com.esalu.pages.Configuration;
 import com.esalu.pages.Inventario;
 import com.esalu.pages.Ventas;
@@ -39,6 +41,27 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public static void changePaneltoReportes(){
+        if(usuario.getCanAccessReportes()){
+            ventana.getContentPane().removeAll();
+            ventana.getContentPane().add(new PanelDerecho());
+            ventana.revalidate();
+            ventana.repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(Main.ventana, "No tienes permisos para ver esta sección", "Permiso denegado", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public static void changePaneltoLogIn(){
+        MainTitle title = new MainTitle("Sistema Mueblería Salas Luján");
+        ventana.getContentPane().removeAll();
+        ventana.getContentPane().add(new PanelDerecho());
+        title.setBounds(600, 0, 967, 683);
+        title.setForeground(Colors.lightPurple);
+        ventana.getContentPane().add(title);
+        ventana.revalidate();
+        ventana.repaint();
     }
     public static void changePaneltoInventario(){
         if(usuario.getCanAccessInventario()){
@@ -93,7 +116,7 @@ public class Main {
                 ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 ventana.setSize(1280, 720);
                 ventana.setLayout(null);
-                changePaneltoVentas();
+                changePaneltoLogIn();
                 ventana.setLocationRelativeTo(null);
                 ventana.setVisible(true);
                 return;

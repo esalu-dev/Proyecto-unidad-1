@@ -52,11 +52,15 @@ public class DeleteUserFrame extends JFrame {
    };
 
 
-
+   public void restartFields(){
+      user.setText("");
+      password.setText("");
+   }
 
    public DeleteUserFrame(){
       super("Eliminar usuario");
       // setAlwaysOnTop(true);
+      restartFields();
       subtitulo.setFont(new Font("Poppins", Font.PLAIN, 12));
       setResizable(false);
       setUndecorated(true);

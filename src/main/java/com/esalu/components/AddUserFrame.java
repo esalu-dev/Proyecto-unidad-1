@@ -61,12 +61,19 @@ public class AddUserFrame extends JFrame {
       }
    };
 
-
-
+   public void restartFields(){
+      user.setText("");
+      password.setText("");
+      allowVentas.setSelected(false);
+      allowInventario.setSelected(false);
+      allowConfiguracion.setSelected(false);
+      allowReportes.setSelected(false);
+   }
 
    public AddUserFrame(){
       super("Añadir usuario");
       // setAlwaysOnTop(true);
+      restartFields();
       subtitulo.setFont(new Font("Poppins", Font.PLAIN, 12));
       setResizable(false);
       setUndecorated(true);

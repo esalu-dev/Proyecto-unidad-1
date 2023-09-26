@@ -15,8 +15,10 @@ import com.esalu.components.CartPanel;
 import com.esalu.components.MainTitle;
 import com.esalu.components.ProductsPanel;
 import com.esalu.components.TableButton;
+import com.esalu.components.VentasTable;
 import com.esalu.constants.Colors;
 import com.esalu.providers.JSONManager;
+import com.esalu.providers.JSONVentas;
 import com.esalu.types.Mueble;
 
 public class Ventas extends JPanel {
@@ -59,6 +61,9 @@ public class Ventas extends JPanel {
         return;
       }
       String mensaje = "Compra realizada por " + clientName + "\nTotal a pagar: " + currencyFormatter.format(priceToPay)+ "\n\nProductos comprados:\n";
+      com.esalu.types.Ventas venta = new com.esalu.types.Ventas(Main.usuario.getUsername(),clientName, "ahora", "ahorita", priceToPay, CartPanel.mueblesInCart.toArray(new Mueble[CartPanel.mueblesInCart.size()]));
+      JSONVentas.addDataToLocalJSON(venta);
+      VentasTable.refreshTable();
       for(Mueble mueble : CartPanel.mueblesInCart){
         mensaje += mueble.getCantidad() + " "+ mueble.getNombre() + "\n";
         for(int index : CartPanel.indexList){

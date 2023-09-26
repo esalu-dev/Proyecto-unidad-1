@@ -30,7 +30,7 @@ public class Main {
     final static Ventas ventas = new Ventas();
     final static Configuration configuracion = new Configuration();
     final static Reportes reportes = new Reportes();
-    static Users usuario;
+    public static Users usuario;
 
     public static void setDesign(){
         try {

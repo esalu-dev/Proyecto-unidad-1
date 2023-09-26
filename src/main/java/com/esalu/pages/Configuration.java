@@ -65,16 +65,11 @@ public class Configuration extends JPanel {
       });
       logOutButton.addActionListener(new java.awt.event.ActionListener(){
          public void actionPerformed(java.awt.event.ActionEvent e){
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas cerrar sesión?\n(Atención: Se reiniciará el programa)", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
-            if(opcion == JOptionPane.NO_OPTION){
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas cerrar sesión?\n(Atención: Se cerrará el programa y tendrá que abrirlo manualmente)", "Cerrar sesión", JOptionPane.YES_NO_OPTION);
+            if(opcion != JOptionPane.YES_OPTION){
                return;
             }
-            try {
-               Runtime.getRuntime().exec("java -jar MyApp.jar");
-               System.exit(0);
-            } catch (IOException ev) {
-               ev.printStackTrace();
-            }         
+            System.exit(0);
          }
       });
      etiqueta.setForeground(Colors.lightPurple);

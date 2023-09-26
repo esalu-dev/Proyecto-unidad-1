@@ -2,11 +2,17 @@
   {
     "username": "admin",
     "password": "admin",
-    "isAdmin": true
+    "canAccessVentas": true,
+    "canAccessInventario": true,
+    "canAccessConfiguracion": true,
+    "canAccessReportes": true
   },
   {
     "username": "Emilio Salas",
     "password": "1234",
-    "isAdmin": false
+    "canAccessVentas": true,
+    "canAccessInventario": true,
+    "canAccessConfiguracion": false,
+    "canAccessReportes": true
   }
 ]

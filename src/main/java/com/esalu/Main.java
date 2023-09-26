@@ -41,7 +41,7 @@ public class Main {
         }
     }
     public static void changePaneltoInventario(){
-        if(usuario.getIsAdmin()){
+        if(usuario.getCanAccessInventario()){
             ventana.getContentPane().removeAll();
             ventana.getContentPane().add(new PanelDerecho());
             inventario.setBounds(300, 0, 967, 683);
@@ -54,15 +54,20 @@ public class Main {
         }
     }
     public static void changePaneltoVentas(){
-        ventana.getContentPane().removeAll();
-        ventana.getContentPane().add(new PanelDerecho());
-        ventas.setBounds(300, 0, 967, 683);
-        ventana.getContentPane().add(ventas);
-        ventana.revalidate();
-        ventana.repaint();
+        if(usuario.getCanAccessVentas()){
+            ventana.getContentPane().removeAll();
+            ventana.getContentPane().add(new PanelDerecho());
+            ventas.setBounds(300, 0, 967, 683);
+            ventana.getContentPane().add(ventas);
+            ventana.revalidate();
+            ventana.repaint();
+        }
+        else{
+            JOptionPane.showMessageDialog(Main.ventana, "No tienes permisos para ver esta sección", "Permiso denegado", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public static void changePaneltoConfiguracion(){
-        if(usuario.getIsAdmin()){
+        if(usuario.getCanAccessConfiguracion()){
             ventana.getContentPane().removeAll();
             ventana.getContentPane().add(new PanelDerecho());
             configuracion.setBounds(300, 0, 967, 683);

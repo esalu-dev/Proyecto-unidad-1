@@ -4,7 +4,9 @@ import java.awt.Font;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -60,8 +62,13 @@ public class Ventas extends JPanel {
         JOptionPane.showMessageDialog(Main.ventana, "El nombre del cliente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
         return;
       }
+      Date fechaYhora = new Date(System.currentTimeMillis());
+      SimpleDateFormat fechaFormat = new SimpleDateFormat("dd-MM-yyyy");
+      SimpleDateFormat horaFormat = new SimpleDateFormat("HH:mm:ss");
+      String fecha = fechaFormat.format(fechaYhora);
+      String hora = horaFormat.format(fechaYhora);
       String mensaje = "Compra realizada por " + clientName + "\nTotal a pagar: " + currencyFormatter.format(priceToPay)+ "\n\nProductos comprados:\n";
-      com.esalu.types.Ventas venta = new com.esalu.types.Ventas(Main.usuario.getUsername(),clientName, "ahora", "ahorita", priceToPay, CartPanel.mueblesInCart.toArray(new Mueble[CartPanel.mueblesInCart.size()]));
+      com.esalu.types.Ventas venta = new com.esalu.types.Ventas(Main.usuario.getUsername(),clientName, fecha, hora, priceToPay, CartPanel.mueblesInCart.toArray(new Mueble[CartPanel.mueblesInCart.size()]));
       JSONVentas.addDataToLocalJSON(venta);
       VentasTable.refreshTable();
       for(Mueble mueble : CartPanel.mueblesInCart){

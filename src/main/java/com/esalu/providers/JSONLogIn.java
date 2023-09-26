@@ -1,7 +1,9 @@
 package com.esalu.providers;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.Type;
@@ -25,5 +27,27 @@ public class JSONLogIn {
           e.printStackTrace();
       }
       return users;
+   }
+
+   public static void saveDataInJSON(List<Users> listaUsers) {
+      try (Writer writer = new FileWriter("users.json")) {
+         gson.toJson(listaUsers, writer);
+         System.out.println("Datos guardados en el archivo JSON");
+         writer.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+   }
+
+   public static void addDataToLocalJSON(Users user){
+      try (Reader reader = new FileReader("users.json")) {
+         Type tipoLista = new TypeToken<List<Users>>() {}.getType();
+         users = gson.fromJson(reader, tipoLista);
+         reader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      users.add(user);
+      saveDataInJSON(users);
    }
 }

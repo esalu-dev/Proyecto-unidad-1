@@ -14,5 +14,13 @@
     "canAccessInventario": true,
     "canAccessConfiguracion": false,
     "canAccessReportes": true
+  },
+  {
+    "username": "Victoria",
+    "password": "vicky",
+    "canAccessVentas": true,
+    "canAccessInventario": false,
+    "canAccessConfiguracion": false,
+    "canAccessReportes": false
   }
 ]

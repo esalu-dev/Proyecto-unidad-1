@@ -2,7 +2,7 @@
   {
     "nombre": "Silla",
     "precio": 500.0,
-    "cantidad": 2,
+    "cantidad": 1,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\silla.png"
   },
   {
@@ -14,13 +14,13 @@
   {
     "nombre": "Sofá",
     "precio": 2500.0,
-    "cantidad": 3,
+    "cantidad": 2,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\sofa.png"
   },
   {
     "nombre": "Armario",
     "precio": 15000.0,
-    "cantidad": 8,
+    "cantidad": 7,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\armario.png"
   },
   {
@@ -32,7 +32,7 @@
   {
     "nombre": "Mecedora",
     "precio": 800.0,
-    "cantidad": 12,
+    "cantidad": 11,
     "imgLink": "D:\\Esalu\\04 Proyectos Programacion\\Codigos\\Java\\Proyecto Unidad 1 TADP\\project_1\\assets\\mecedora.png"
   },
   {

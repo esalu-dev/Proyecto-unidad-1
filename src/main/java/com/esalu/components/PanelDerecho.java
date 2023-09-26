@@ -21,13 +21,17 @@ public class PanelDerecho extends JPanel {
    final static ActionListener configuracionAction = e -> {
       Main.changePaneltoConfiguracion();
    };
+   final static ActionListener reportesAction = e -> {
+      Main.changePaneltoReportes();
+   };
 
    final static JLabel titulo = new JLabel("Mueblería");
    final static JLabel titulo2 = new JLabel("Salas Luján");
    final static Font titleFont = new Font("Poppins", Font.BOLD, 20);
    final static SectionButton ventas = new SectionButton("Ventas", ventasAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
    final static SectionButton inventario = new SectionButton("Inventario", inventarioAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
-   final static SectionButton configuracion = new SectionButton("Configuración", configuracionAction, new CustomBorder(Colors.darkPurple, Colors.darkPurple,Colors.lightPurple,Colors.lightPurple, 3));
+   final static SectionButton configuracion = new SectionButton("Configuración", configuracionAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
+   final static SectionButton reportes = new SectionButton("Reportes", reportesAction, new CustomBorder(Colors.darkPurple, Colors.lightPurple,Colors.lightPurple,Colors.lightPurple, 3));
 
    public PanelDerecho(){
       setLayout(null);
@@ -45,8 +49,10 @@ public class PanelDerecho extends JPanel {
       add(ventas);
       inventario.setBounds(0, 320, 300, 120);
       add(inventario);
-      configuracion.setBounds(0, 440, 300, 120);
+      reportes.setBounds(0, 440, 300, 120);
       add(configuracion);
+      configuracion.setBounds(0, 560, 300, 120);
+      add(reportes);
    }
    
 }

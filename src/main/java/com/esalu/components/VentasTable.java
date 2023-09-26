@@ -13,19 +13,22 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import com.esalu.pages.Reportes;
 import com.esalu.providers.JSONVentas;
 import com.esalu.types.Ventas;
 
 public class VentasTable extends JScrollPane {
-   private static JTable table;
+   public static JTable table;
    private static DefaultTableModel model = new DefaultTableModel();
    final static Font titleFont = new Font("Poppins", Font.PLAIN, 12);
 
    public static void refreshTable(){
+      model.setRowCount(0);
       List<Ventas> ventas = JSONVentas.getDataFromLocalJSON();
       for(Ventas venta : ventas){
          model.addRow(venta.toArray());
       }
+      Reportes.updateTotal();
       table.revalidate();
       table.repaint();
    }

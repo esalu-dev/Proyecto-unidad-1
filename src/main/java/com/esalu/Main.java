@@ -107,10 +107,8 @@ public class Main {
         }
     }
     public static void logIn(String username, String password){
-        System.out.println(username + "p" + password);
         List<Users> users = JSONLogIn.getDataFromLocalJSON();;
         for (Users user : users) {
-            System.out.println(user.toString());
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){ 
                 usuario = user;
                 JOptionPane.showMessageDialog(ventana, "Bienvenido " + user.getUsername(), "Bienvenido", JOptionPane.INFORMATION_MESSAGE);

@@ -15,6 +15,7 @@ import com.esalu.components.PanelDerecho;
 import com.esalu.constants.Colors;
 import com.esalu.pages.Configuration;
 import com.esalu.pages.Inventario;
+import com.esalu.pages.Reportes;
 import com.esalu.pages.Ventas;
 import com.esalu.providers.JSONLogIn;
 import com.esalu.types.Users;
@@ -28,6 +29,7 @@ public class Main {
     public final static Inventario inventario = new Inventario();
     final static Ventas ventas = new Ventas();
     final static Configuration configuracion = new Configuration();
+    final static Reportes reportes = new Reportes();
     static Users usuario;
 
     public static void setDesign(){
@@ -46,6 +48,8 @@ public class Main {
         if(usuario.getCanAccessReportes()){
             ventana.getContentPane().removeAll();
             ventana.getContentPane().add(new PanelDerecho());
+            reportes.setBounds(300, 0, 967, 683);
+            ventana.getContentPane().add(reportes);
             ventana.revalidate();
             ventana.repaint();
         }

@@ -39,6 +39,12 @@ public class AddUserFrame extends JFrame {
          if(opcion == JOptionPane.NO_OPTION){
             return;
          }
+         else{
+            Users newUser = new Users(user.getText(), new String(password.getPassword()), false, false, false, false);
+            JSONLogIn.addDataToLocalJSON(newUser);
+            JOptionPane.showMessageDialog(null, "Usuario añadido correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
+         }
       }
       else{
          Users newUser = new Users(user.getText(), new String(password.getPassword()), allowVentas.isSelected(), allowInventario.isSelected(), allowConfiguracion.isSelected(), allowReportes.isSelected());
@@ -114,7 +120,5 @@ public class AddUserFrame extends JFrame {
       submitButton.addActionListener(submitListener);
       
    }
-   public static void main(String[] args) {
-      new AddUserFrame().setVisible(true);
-   }
+   
 }

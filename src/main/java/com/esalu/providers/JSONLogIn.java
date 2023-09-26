@@ -50,4 +50,22 @@ public class JSONLogIn {
       users.add(user);
       saveDataInJSON(users);
    }
+   
+   public static int deleteUserFromLocalJSON(String user, String password){
+      try (Reader reader = new FileReader("users.json")) {
+         Type tipoLista = new TypeToken<List<Users>>() {}.getType();
+         users = gson.fromJson(reader, tipoLista);
+         reader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      for(Users usuario : users){
+         if(usuario.getUsername().equals(user) && usuario.getPassword().equals(password)){
+            users.remove(usuario);
+            saveDataInJSON(users);
+            return 1;
+         }
+      }
+      return 0;
+   }
 }

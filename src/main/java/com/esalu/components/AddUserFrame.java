@@ -40,6 +40,11 @@ public class AddUserFrame extends JFrame {
             return;
          }
          else{
+            int userExists = JSONLogIn.checkUserInLocalJSON(user.getText());
+            if(userExists==1){
+               JOptionPane.showMessageDialog(null, "El nombre de usuario ya está ocupado", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
             Users newUser = new Users(user.getText(), new String(password.getPassword()), false, false, false, false);
             JSONLogIn.addDataToLocalJSON(newUser);
             JOptionPane.showMessageDialog(null, "Usuario añadido correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -47,6 +52,11 @@ public class AddUserFrame extends JFrame {
          }
       }
       else{
+         int userExists = JSONLogIn.checkUserInLocalJSON(user.getText());
+         if(userExists==1){
+            JOptionPane.showMessageDialog(null, "El nombre de usuario ya está ocupado", "Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+         }
          Users newUser = new Users(user.getText(), new String(password.getPassword()), allowVentas.isSelected(), allowInventario.isSelected(), allowConfiguracion.isSelected(), allowReportes.isSelected());
          JSONLogIn.addDataToLocalJSON(newUser);
          JOptionPane.showMessageDialog(null, "Usuario añadido correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);

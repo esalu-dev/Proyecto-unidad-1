@@ -85,7 +85,7 @@ public class JSONManager {
         muebles.set(index, mueble);
         saveDataInJSON(muebles);
     }
-    public static void decreaseQuantityFromLocalJSON(int index, int quantity){
+    public static void decreaseQuantityFromLocalJSON(Mueble mueble){
         try (Reader reader = new FileReader("products.json")) {
             Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
             muebles = gson.fromJson(reader, tipoLista);
@@ -93,7 +93,14 @@ public class JSONManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        muebles.get(index).setCantidad(muebles.get(index).getCantidad() - quantity);
-        saveDataInJSON(muebles);
+        int index = 0;
+        for(Mueble muebleInJSON : muebles){
+            if(muebleInJSON.getNombre().equals(mueble.getNombre()) && muebleInJSON.getPrecio()==mueble.getPrecio() && muebleInJSON.getImgLink().equals(mueble.getImgLink()) ){
+                muebleInJSON.setCantidad(muebleInJSON.getCantidad() - mueble.getCantidad());
+                editDataFromLocalJSON(index, muebleInJSON);
+                break;
+            }
+            index++;
+        }
     }
 }

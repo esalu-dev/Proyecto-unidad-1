@@ -73,9 +73,7 @@ public class Ventas extends JPanel {
       VentasTable.refreshTable();
       for(Mueble mueble : CartPanel.mueblesInCart){
         mensaje += mueble.getCantidad() + " "+ mueble.getNombre() + "\n";
-        for(int index : CartPanel.indexList){
-          JSONManager.decreaseQuantityFromLocalJSON(index, mueble.getCantidad());
-        }
+        JSONManager.decreaseQuantityFromLocalJSON(mueble);
       }
       JOptionPane.showMessageDialog(Main.ventana, mensaje, "Compra realizada", JOptionPane.INFORMATION_MESSAGE);
       CartPanel.panel.removeAll();

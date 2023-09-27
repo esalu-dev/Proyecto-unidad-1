@@ -24,6 +24,7 @@ public class Configuration extends JPanel {
     final static JButton logOutButton = new JButton("Cerrar sesión");
 
     final static JLabel userSectionLabel = new JLabel("Sección de usuarios");
+    final static JLabel systemSectionLabel = new JLabel("Sección de sistema");
 
 
 
@@ -46,9 +47,12 @@ public class Configuration extends JPanel {
       userSectionLabel.setBounds(50, 100, 200, 50);
       userSectionLabel.setForeground(Color.GRAY);
       userSectionLabel.setFont(new Font("Poppins", Font.PLAIN, 12));
+      systemSectionLabel.setBounds(50, 300, 200, 50);
+      systemSectionLabel.setForeground(Color.GRAY);
+      systemSectionLabel.setFont(new Font("Poppins", Font.PLAIN, 12));
       addUserButton.setBounds(50, 150, 200, 50);
       deleteUserButton.setBounds(300, 150, 200, 50);
-      logOutButton.setBounds(50, 600, 200, 50);
+      logOutButton.setBounds(50, 350, 200, 50);
       addUserButton.setFont(new Font("Poppins", Font.PLAIN, 14));
       deleteUserButton.setFont(new Font("Poppins", Font.PLAIN, 14));
       logOutButton.setFont(new Font("Poppins", Font.PLAIN, 14));
@@ -77,6 +81,7 @@ public class Configuration extends JPanel {
       add(userSectionLabel);
       add(addUserButton);
       add(deleteUserButton);
+      add(systemSectionLabel);
       add(logOutButton);
       
    }

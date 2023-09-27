@@ -85,6 +85,10 @@ public class AddDataFrame extends JFrame {
                JOptionPane.showMessageDialog(rootPane, "La cantidad debe ser mayor a 0", "Error", JOptionPane.INFORMATION_MESSAGE);
                return;
             }
+            if(JSONManager.checkUserInLocalJSON(nombre.getText())==1){
+               JOptionPane.showMessageDialog(rootPane, "El mueble ya se encuentra agregado", "Error", JOptionPane.INFORMATION_MESSAGE);
+               return;
+            }
             
             
             Mueble mueble = new Mueble(nombre.getText(), Double.parseDouble(precio.getText()), Integer.parseInt(cantidad.getValue().toString()), rutaArchivo);

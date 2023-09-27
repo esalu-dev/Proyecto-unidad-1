@@ -10,6 +10,7 @@ import java.util.List;
 import java.lang.reflect.Type;
 
 import com.esalu.types.Mueble;
+import com.esalu.types.Users;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -103,4 +104,19 @@ public class JSONManager {
             index++;
         }
     }
+   public static int checkUserInLocalJSON(String nombreMueble){
+      try (Reader reader = new FileReader("products.json")) {
+         Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+         muebles = gson.fromJson(reader, tipoLista);
+         reader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      for(Mueble mueble : muebles){
+         if(mueble.getNombre().equals(nombreMueble)){
+            return 1;
+         }
+      }
+      return 0;
+   }
 }

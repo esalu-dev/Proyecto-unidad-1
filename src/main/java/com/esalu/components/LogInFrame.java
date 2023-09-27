@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.esalu.Main;
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 
 public class LogInFrame extends JFrame implements ActionListener {
@@ -49,11 +50,12 @@ public class LogInFrame extends JFrame implements ActionListener {
       super("Log In");
       setSize(900, 600);
       setUndecorated(true);
-      //setAlwaysOnTop(true);
+      setIconImage(AppIcon.appIcon.getImage());
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setLayout(null);
       setLocationRelativeTo(null);
       setResizable(false);
+      setIconImage(AppIcon.appIcon.getImage());
       getContentPane().setBackground(Colors.loginBlue);
       background.setBounds(450, 0, 450, 600);
       getContentPane().add(background);

@@ -4,7 +4,9 @@ package com.esalu;
 import java.awt.Font;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 // import javax.swing.UnsupportedLookAndFeelException;
@@ -12,6 +14,7 @@ import javax.swing.UIManager;
 import com.esalu.components.LogInFrame;
 import com.esalu.components.MainTitle;
 import com.esalu.components.PanelDerecho;
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 import com.esalu.pages.Configuration;
 import com.esalu.pages.Inventario;
@@ -31,9 +34,11 @@ public class Main {
     final static Configuration configuracion = new Configuration();
     final static Reportes reportes = new Reportes();
     public static Users usuario;
+    final static JLabel background = new JLabel(AppIcon.backgroundIcon);
 
     public static void setDesign(){
         try {
+            ventana.setIconImage(AppIcon.appIcon.getImage());
             Font defaultFont = new Font("Poppins", Font.PLAIN, 14);
             UIManager.put("Button.font", defaultFont); 
             UIManager.put("Label.font", defaultFont);
@@ -58,12 +63,11 @@ public class Main {
         }
     }
     public static void changePaneltoLogIn(){
-        MainTitle title = new MainTitle("Sistema Mueblería Salas Luján");
         ventana.getContentPane().removeAll();
+        ventana.getContentPane().setBackground(Colors.mainWhite);
         ventana.getContentPane().add(new PanelDerecho());
-        title.setBounds(600, 0, 967, 683);
-        title.setForeground(Colors.lightPurple);
-        ventana.getContentPane().add(title);
+        background.setBounds(300, 0, 967, 683);
+        ventana.getContentPane().add(background);
         ventana.revalidate();
         ventana.repaint();
     }

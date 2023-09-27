@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.esalu.Main;
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 import com.esalu.pages.Ventas;
 import com.esalu.providers.JSONManager;
@@ -120,6 +121,7 @@ public class EditDataFrame extends JFrame {
       setResizable(false);
       setUndecorated(true);
       setSize(400,600);
+      setIconImage(AppIcon.appIcon.getImage());
       setLocationRelativeTo(null);
       getContentPane().setBackground(Colors.lightBlue);
       setLayout(null);

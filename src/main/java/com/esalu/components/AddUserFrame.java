@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 import com.esalu.providers.JSONLogIn;
 import com.esalu.types.Users;
@@ -90,6 +91,7 @@ public class AddUserFrame extends JFrame {
       setSize(400,600);
       setLocationRelativeTo(null);
       getContentPane().setBackground(Colors.lightBlue);
+      setIconImage(AppIcon.appIcon.getImage());
       setLayout(null);
       titulo.setBounds(20, 0, 400, 100);
       add(titulo);

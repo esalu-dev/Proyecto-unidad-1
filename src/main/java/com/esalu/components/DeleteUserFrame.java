@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 import com.esalu.providers.JSONLogIn;
 
@@ -68,6 +69,7 @@ public class DeleteUserFrame extends JFrame {
       setLocationRelativeTo(null);
       getContentPane().setBackground(Colors.lightBlue);
       setLayout(null);
+      setIconImage(AppIcon.appIcon.getImage());
       titulo.setBounds(20, 0, 400, 100);
       add(titulo);
       subtitulo.setBounds(20, 35, 400, 100);

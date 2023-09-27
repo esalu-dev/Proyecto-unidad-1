@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.esalu.Main;
+import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
 import com.esalu.pages.Ventas;
 import com.esalu.providers.JSONManager;
@@ -105,6 +106,7 @@ public class AddDataFrame extends JFrame {
       super("Añadir un producto al inventario");
       restartFields();
       setAlwaysOnTop(true);
+      setIconImage(AppIcon.appIcon.getImage());
       subtitulo.setFont(new Font("Poppins", Font.PLAIN, 12));
       setResizable(false);
       setUndecorated(true);

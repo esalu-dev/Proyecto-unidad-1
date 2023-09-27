@@ -33,7 +33,7 @@ public class Configuration extends JPanel {
     final static JLabel systemSectionLabel = new JLabel("Sección de sistema");
     final static JLabel infoSectionLabel = new JLabel("Sección de información");
 
-    final static JLabel programVersion = new JLabel("Versión del programa: 1.0.1");
+    final static JLabel programVersion = new JLabel("Versión del programa: 1.1.0");
 
 
    

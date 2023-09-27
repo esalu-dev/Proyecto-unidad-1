@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToolTip;
 
 import com.esalu.Main;
 import com.esalu.constants.Colors;
@@ -62,12 +63,16 @@ public class PanelDerecho extends JPanel {
       add(titulo);
       add(titulo2);
       ventas.setBounds(0, 200, 300, 120);
+      ventas.setToolTipText("Abrir sección de ventas");
       add(ventas);
       inventario.setBounds(0, 320, 300, 120);
+      inventario.setToolTipText("Abrir sección de inventario");
       add(inventario);
       reportes.setBounds(0, 440, 300, 120);
+      reportes.setToolTipText("Abrir sección de reportes");
       add(configuracion);
       configuracion.setBounds(0, 560, 300, 120);
+      configuracion.setToolTipText("Abrir sección de configuración");
       add(reportes);
    }
    

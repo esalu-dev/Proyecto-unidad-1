@@ -59,11 +59,11 @@ public class Reportes extends JPanel {
      updateTotal();
       total.setBounds(50, 550, 400, 50);
       total.setFont(font);
-      total.setForeground(Colors.mainBlue);
+      total.setForeground(Colors.darkBlue);
       add(total);
       todayTotal.setBounds(50, 600, 400, 50);
       todayTotal.setFont(font);
-      todayTotal.setForeground(Colors.mainBlue);
+      todayTotal.setForeground(Colors.darkBlue);
       add(todayTotal);
      
  

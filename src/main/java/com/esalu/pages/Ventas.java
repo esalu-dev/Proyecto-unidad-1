@@ -50,7 +50,7 @@ public class Ventas extends JPanel {
     @Override
     public void actionPerformed(ActionEvent e) {
       int opcion = JOptionPane.showConfirmDialog(Main.ventana, "¿Estás seguro de realizar la compra?", "Confirmar compra", JOptionPane.YES_NO_OPTION);
-      if(opcion == JOptionPane.NO_OPTION){
+      if(opcion != JOptionPane.YES_OPTION){
         return;
       }
       String clientName = JOptionPane.showInputDialog(Main.ventana, "Ingresa el nombre del cliente", "Nombre del cliente", JOptionPane.QUESTION_MESSAGE);

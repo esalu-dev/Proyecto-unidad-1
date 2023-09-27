@@ -36,7 +36,7 @@ public class AddUserFrame extends JFrame {
       }
       if(!allowVentas.isSelected() && !allowInventario.isSelected() && !allowConfiguracion.isSelected() && !allowReportes.isSelected()){
          int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres crear un usuario sin permisos?", "Confirmación", JOptionPane.YES_NO_OPTION);
-         if(opcion == JOptionPane.NO_OPTION){
+         if(opcion != JOptionPane.YES_OPTION){
             return;
          }
          else{

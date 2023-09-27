@@ -11,20 +11,36 @@ import com.esalu.constants.Colors;
 import com.esalu.constants.CustomBorder;
 
 public class PanelDerecho extends JPanel {
-
+   
    final static ActionListener ventasAction = e -> {
       Main.changePaneltoVentas();
+      PanelDerecho.ventas.isSelected(true);
+      PanelDerecho.inventario.isSelected(false);
+      PanelDerecho.configuracion.isSelected(false);
+      PanelDerecho.reportes.isSelected(false);
    };
    final static ActionListener inventarioAction = e -> {
       Main.changePaneltoInventario();
+      PanelDerecho.inventario.isSelected(true);
+      PanelDerecho.ventas.isSelected(false);
+      PanelDerecho.configuracion.isSelected(false);
+      PanelDerecho.reportes.isSelected(false);
    };
    final static ActionListener configuracionAction = e -> {
       Main.changePaneltoConfiguracion();
+      PanelDerecho.configuracion.isSelected(true);
+      PanelDerecho.inventario.isSelected(false);
+      PanelDerecho.ventas.isSelected(false);
+      PanelDerecho.reportes.isSelected(false);
    };
    final static ActionListener reportesAction = e -> {
       Main.changePaneltoReportes();
+      PanelDerecho.reportes.isSelected(true);
+      PanelDerecho.inventario.isSelected(false);
+      PanelDerecho.configuracion.isSelected(false);
+      PanelDerecho.ventas.isSelected(false);
    };
-
+   
    final static JLabel titulo = new JLabel("Mueblería");
    final static JLabel titulo2 = new JLabel("Salas Luján");
    final static Font titleFont = new Font("Poppins", Font.BOLD, 20);

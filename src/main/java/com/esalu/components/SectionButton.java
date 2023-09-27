@@ -14,11 +14,19 @@ public class SectionButton extends JButton {
       super(text);
       setFocusable(false);
       setFont(titleFont);
-      setContentAreaFilled(false);
-      setOpaque(false);
+      // setContentAreaFilled(false);
+      // setOpaque(false);
       setForeground(Colors.mainWhite);
       setSize(300, 120);
       setBorder(borde);
       addActionListener(action);
+      setBackground(Colors.lightPurple);
+   }
+   public void isSelected(boolean b){
+      if(b){
+         setBackground(Colors.darkPurple);
+      }else{
+         setBackground(Colors.lightPurple);
+      }
    }
 }

@@ -9,7 +9,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
-import java.util.Locale;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -55,7 +54,7 @@ public class Card extends JPanel {
       setMaximumSize(new Dimension(150,200));
       setLayout(new BorderLayout());
       setBackground(Colors.mainWhite);
-      NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("es", "MX", "MX"));
+      NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
       String formattedPrice = currencyFormatter.format(Double.parseDouble(price));
       this.index = index;
       titulo.setText(title);

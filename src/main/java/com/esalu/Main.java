@@ -4,15 +4,12 @@ package com.esalu;
 import java.awt.Font;
 import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-// import javax.swing.UnsupportedLookAndFeelException;
 
 import com.esalu.components.LogInFrame;
-import com.esalu.components.MainTitle;
 import com.esalu.components.PanelDerecho;
 import com.esalu.constants.AppIcon;
 import com.esalu.constants.Colors;
@@ -23,7 +20,6 @@ import com.esalu.pages.Ventas;
 import com.esalu.providers.JSONLogIn;
 import com.esalu.types.Users;
 
-// import mdlaf.MaterialLookAndFeel;
 
 
 public class Main {
@@ -44,7 +40,6 @@ public class Main {
             UIManager.put("Label.font", defaultFont);
             UIManager.put("TextField.font", defaultFont);
             UIManager.put("TextArea.font", defaultFont);
-            //UIManager.setLookAndFeel(new MaterialLookAndFeel());
         } catch (Exception e) {
             e.printStackTrace();
         }

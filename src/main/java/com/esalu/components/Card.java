@@ -93,6 +93,7 @@ public class Card extends JPanel {
       northPanel.add(cantidad);
       add(northPanel, BorderLayout.NORTH);
       add(imagen, BorderLayout.CENTER);
+      button.setToolTipText("Agregar al carrito");
       add(button, BorderLayout.SOUTH);
    }
    public void setAvailable(boolean isAvailable){

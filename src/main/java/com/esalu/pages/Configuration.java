@@ -26,6 +26,7 @@ public class Configuration extends JPanel {
     final static JLabel userSectionLabel = new JLabel("Sección de usuarios");
     final static JLabel systemSectionLabel = new JLabel("Sección de sistema");
 
+    final static JLabel programVersion = new JLabel("Versión del programa: 1.0.0");
 
 
    
@@ -55,6 +56,9 @@ public class Configuration extends JPanel {
       logOutButton.setBounds(50, 350, 200, 50);
       addUserButton.setFont(new Font("Poppins", Font.PLAIN, 14));
       deleteUserButton.setFont(new Font("Poppins", Font.PLAIN, 14));
+      programVersion.setBounds(780, 630, 200, 50);
+      programVersion.setForeground(Color.GRAY);
+      programVersion.setFont(new Font("Poppins", Font.PLAIN, 12));
       logOutButton.setFont(new Font("Poppins", Font.PLAIN, 14));
       addUserButton.addActionListener(new java.awt.event.ActionListener(){
          public void actionPerformed(java.awt.event.ActionEvent e){
@@ -83,6 +87,6 @@ public class Configuration extends JPanel {
       add(deleteUserButton);
       add(systemSectionLabel);
       add(logOutButton);
-      
+      add(programVersion);
    }
 }

@@ -25,8 +25,8 @@ public class VentasTable extends JScrollPane {
    public static void refreshTable(){
       model.setRowCount(0);
       List<Ventas> ventas = JSONVentas.getDataFromLocalJSON();
-      for(Ventas venta : ventas){
-         model.addRow(venta.toArray());
+      for(int i = ventas.size()-1; i >= 0; i--){
+         model.addRow(ventas.get(i).toArray());
       }
       Reportes.updateTotal();
       table.revalidate();
@@ -63,11 +63,10 @@ public class VentasTable extends JScrollPane {
       model.addColumn("Total");
       model.addColumn("Muebles");
 
-      List<Ventas> ventas = JSONVentas.getDataFromLocalJSON();
-      for(Ventas venta : ventas){
-         model.addRow(venta.toArray());
+List<Ventas> ventas = JSONVentas.getDataFromLocalJSON();
+      for(int i = ventas.size()-1; i >= 0; i--){
+         model.addRow(ventas.get(i).toArray());
       }
-
       // Crea la tabla y asigna el modelo
       table = new JTable(model);
       table.setRowHeight(60);

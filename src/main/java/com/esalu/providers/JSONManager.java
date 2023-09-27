@@ -118,4 +118,15 @@ public class JSONManager {
       }
       return 0;
    }
+   public static void deleteEverythingFromLocalJSON(){
+      try (Reader reader = new FileReader("products.json")) {
+         Type tipoLista = new TypeToken<List<Mueble>>() {}.getType();
+         muebles = gson.fromJson(reader, tipoLista);
+         reader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      muebles.clear();
+      saveDataInJSON(muebles);
+   }
 }

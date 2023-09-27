@@ -50,5 +50,15 @@ public class JSONVentas {
     ventas.add(venta);
     saveDataInJSON(ventas);
    }
-
+   public static void deleteEverythingFromLocalJSON(){
+    try (Reader reader = new FileReader("ventas.json")) {
+        Type tipoLista = new TypeToken<List<Ventas>>() {}.getType();
+        ventas = gson.fromJson(reader, tipoLista);
+        reader.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    ventas.clear();
+    saveDataInJSON(ventas);
+   }
 }
